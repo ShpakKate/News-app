@@ -1,0 +1,30 @@
+<h2 class="title">New News</h2>
+
+<div class="container">
+    <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+        <h1 class="title-group">Add News</h1>
+
+        <div class="form-control">
+            <label for="title" class="lable">{{ title | titlecase }}</label>
+            <input type="text" class="title-form valid" formControlName="title" [(ngModel)]="loginForm.titleText">
+            <div class="valiadation" *ngIf="titleFn?.invalid && (titleFn?.dirty || titleFn?.touched )">
+                <small *ngIf="titleFn?.errors?.['required']">Field cannnot be empty</small>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="news" class="lable">{{ news | titlecase }}</label>
+            <textarea type="text" class="news-form valid" formControlName="news"
+                [(ngModel)]="loginForm.text"></textarea>
+            <div class="valiadation" *ngIf="newsFn?.invalid && (newsFn?.dirty || newsFn?.touched )" class="valiadation">
+                <small *ngIf="newsFn?.errors?.['required']">Field cannnot be empty</small>
+                <small *ngIf="newsFn?.errors?.['minlength']">Length must be at least 10 characters</small>
+            </div>
+            {{form.errors?.['minlength']}}
+        </div>
+
+        <button class="btn-form" type="submit" [disabled]="form.invalid">Send</button>
+        <button class="btn-form" type="reset">Clear <Form></Form></button>
+
+    </form>
+</div>

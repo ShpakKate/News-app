@@ -1,0 +1,27 @@
+$bg-color: #ccc;
+
+.title {
+    background-color: $bg-color;
+    padding: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.page {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.active {
+    color: #ff0000;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+a {
+    text-decoration-line: none;
+}

@@ -1,0 +1,11 @@
+<h2 class="title">News</h2>
+<ul class="news-list">
+    <li class="news-item" *ngFor="let item of newsList">
+        <span class="news-name">{{ item.title }}</span>
+        <span>{{ item.short }}</span>
+        <button (click)="onClick(item)"><a class="news-link">Read more...</a></button>
+    </li>
+</ul>
+<ng-container *ngIf="activeNews">
+    <app-modal title="{{activeNews.title}}" text="{{activeNews.full}}" (close)="onModalClose()"></app-modal>
+</ng-container>

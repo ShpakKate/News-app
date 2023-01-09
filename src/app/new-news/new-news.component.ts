@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
+import { MyValidators } from '../my-validators';
 
 @Component({
   selector: 'app-new-news',
@@ -23,8 +24,8 @@ export class NewNewsComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      title: new FormControl('', Validators.required),
-      news: new FormControl('', [Validators.required, Validators.minLength(10)])
+      title: new FormControl('', [Validators.required, MyValidators.spacesVal]),
+      news: new FormControl('', [Validators.required, Validators.minLength(10), MyValidators.spacesVal])
     })
   }
 

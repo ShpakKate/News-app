@@ -45,11 +45,7 @@ export class DataService {
   }
 
   deleteNewses() {
-    this.newsList$.pipe(take(1)).subscribe(val => {
-      val = [];
-      this.newsList.next(val);
-      console.log(val);
-    })
+    this.newsList.next([]);
   }
 
 }

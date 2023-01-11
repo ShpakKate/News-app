@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
-import { MyValidators } from '../my-validators';
+import { Observable, of } from 'rxjs';
+import { MyValidators } from 'src/shared/valiadators';
+import { News } from '../model';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-new-news',
@@ -11,22 +14,29 @@ export class NewNewsComponent implements OnInit {
 
   title: string = 'new title:';
   news: string = ' new news:';
+  form!: FormGroup;
+  newsList$: Observable<News[]> = of([]);
 
   loginForm: any = {
     titleText: '',
     text: ''
   }
 
-  form!: FormGroup;
+  constructor(private dataService: DataService) {
+  }
 
-  constructor() {
+  addNews(title: string, full: string) {
+    this.dataService.addNews(title, full);
   }
 
   ngOnInit() {
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required, MyValidators.spacesVal]),
       news: new FormControl('', [Validators.required, Validators.minLength(10), MyValidators.spacesVal])
-    })
+    });
+
+    this.newsList$ = this.dataService.newsList;
+
   }
 
   get titleFn() {
@@ -41,13 +51,9 @@ export class NewNewsComponent implements OnInit {
     if (this.form.valid) {
       console.log(this.form);
       const formData: any = { ...this.form.value }
+      this.form.reset();
+      console.log(this.loginForm.text, this.loginForm.titleText)
     }
-
-    console.log(this.loginForm.text, this.loginForm.titleText)
-  }
-
-  empty() {
-    this.loginForm.titleText
   }
 
   clear() {

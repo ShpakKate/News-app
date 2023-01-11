@@ -14,15 +14,6 @@ import { NewNewsComponent } from './new-news/new-news.component';
 import { CommonModule } from '@angular/common';
 import { AddComponent } from './add/add.component';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'news', component: NewsComponent },
-  { path: 'pages', component: PagesComponent },
-  { path: 'new-news', component: NewNewsComponent }
-
-]
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,12 +28,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

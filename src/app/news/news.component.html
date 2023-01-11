@@ -1,9 +1,11 @@
 <h2 class="title">News</h2>
+<button class="btn-delete" (click)="deleteNewses()">Delete News</button>
 <ul class="news-list">
-    <li class="news-item" *ngFor="let item of newsList">
+    <li class="news-item" *ngFor="let item of newsList$ | async">
         <span class="news-name">{{ item.title }}</span>
         <span>{{ item.short }}</span>
         <button (click)="onClick(item)"><a class="news-link">Read more...</a></button>
+        <button (click)="deleteNews(item)">Delete News</button>
     </li>
 </ul>
 <ng-container *ngIf="activeNews">

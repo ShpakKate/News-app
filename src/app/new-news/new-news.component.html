@@ -23,7 +23,8 @@
             {{form.errors?.['minlength']}}
         </div>
 
-        <button class="btn-form" type="submit" [disabled]="form.invalid">Send</button>
+        <button class="btn-form" type="submit" (click)="addNews(loginForm.titleText, loginForm.text)"
+            [disabled]="form.invalid">Send</button>
         <button class="btn-form" type="reset">Clear <Form></Form></button>
 
     </form>

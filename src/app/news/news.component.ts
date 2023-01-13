@@ -1,39 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { News } from '../model';
+import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Observable, of } from 'rxjs';
+import { News } from '../news.model';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent {
 
-  newsList$: Observable<News[]>;
-  activeNews: any;
+  newsList$: Observable<News[]> = of([]);
+  hidden = true;
 
   constructor(private dataService: DataService) {
-    this.newsList$ = dataService.newsList;
   }
 
   ngOnInit(): void {
-
-  }
-
-  deleteNews(item: any) {
-    this.dataService.deleteNews(item);
+    this.newsList$ = this.dataService.newsList;
   }
 
   deleteNewses() {
     this.dataService.deleteNewses();
-  }
-
-  onClick(item: any) {
-    this.activeNews = item;
-  }
-
-  onModalClose() {
-    this.activeNews = null;
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { MyValidators } from 'src/shared/valiadators';
-import { News } from '../model';
+import { News } from '../news.model';
 import { DataService } from '../services/data.service';
 
 @Component({

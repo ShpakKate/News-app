@@ -1,0 +1,14 @@
+<mat-card class="news-item">
+    <mat-card-header>
+        <mat-card-title class="news-name">{{ item.title }}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content ng-controller="myAppCtrl">
+        <div *ngIf="!showNews"> {{ item.short }}</div>
+        <div *ngIf="showNews">{{ item.full }}</div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button (click)="showNewsItem()"><a class="news-link">Read more...</a></button>
+        <button mat-button (click)="deleteNews(item)">Delete News</button>
+    </mat-card-actions>
+</mat-card>

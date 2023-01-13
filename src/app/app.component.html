@@ -1,11 +1,30 @@
-<div>
-    <h1 class="title" routerLinkActive="active"><a routerLink="/">{{ title | uppercase }}</a></h1>
-    <ul class="nav">
-        <li routerLinkActive="active"><a class="page" routerLink="/">Home </a></li>
-        <li routerLinkActive="active"><a class="page" routerLink="/about">About us </a></li>
-        <li routerLinkActive="active"><a class="page" routerLink="/news">News </a></li>
-        <li routerLinkActive="active"><a class="page" routerLink="/pages">Pages</a></li>
-        <li routerLinkActive="active"><a class="page" routerLink="/new-news">New News</a></li>
-    </ul>
-    <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+    <mat-sidenav [(opened)]="openend">
+        <a mat-list-item class="page" routerLinkActive="active" routerLink="/">
+            <mat-icon>home</mat-icon>
+        </a>
+        <a mat-list-item class="page" routerLinkActive="active" routerLink="/about">About us</a>
+        <a mat-list-item class="page" routerLinkActive="active" routerLink="/news">News</a>
+        <a mat-list-item class="page" routerLinkActive="active" routerLink="/pages">Pages</a>
+        <a mat-list-item class="page" routerLinkActive="active" routerLink="/new-news">New News</a>
+    </mat-sidenav>
+    <mat-sidenav-container>
+
+        <mat-toolbar color="primary" class="nav mat-display-2" routerLinkActive="active">
+            <a class="title" routerLink="/">{{ title | uppercase }}</a>
+
+            <mat-nav-list class="nav">
+                <a mat-list-item class="page" routerLinkActive="active" routerLink="/">
+                    <mat-icon>home</mat-icon>
+                </a>
+                <a mat-list-item class="page" routerLinkActive="active" routerLink="/about">About us</a>
+                <a mat-list-item class="page" routerLinkActive="active" routerLink="/news">News</a>
+                <a mat-list-item class="page" routerLinkActive="active" routerLink="/pages">Pages</a>
+                <a mat-list-item class="page" routerLinkActive="active" routerLink="/new-news">New News</a>
+            </mat-nav-list>
+        </mat-toolbar>
+
+        <button mat-raised-button (click)="openend=!openend">Toggle Opened</button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-container>
+</mat-sidenav-container>

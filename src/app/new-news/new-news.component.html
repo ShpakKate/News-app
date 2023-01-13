@@ -17,7 +17,7 @@
             <textarea type="text" class="news-form valid" formControlName="news"
                 [(ngModel)]="loginForm.text"></textarea>
             <div class="valiadation" *ngIf="newsFn?.invalid && (newsFn?.dirty || newsFn?.touched )" class="valiadation">
-                <small *ngIf="newsFn?.errors?.['required']">Field cannnot be empty</small>
+                <small *ngIf="newsFn?.errors?.['required']">Field can't be empty</small>
                 <small *ngIf="newsFn?.errors?.['minlength']">Length must be at least 10 characters</small>
             </div>
             {{form.errors?.['minlength']}}
@@ -25,7 +25,7 @@
 
         <button class="btn-form" type="submit" (click)="addNews(loginForm.titleText, loginForm.text)"
             [disabled]="form.invalid">Send</button>
-        <button class="btn-form" type="reset">Clear <Form></Form></button>
+        <button class="btn-form" type="reset">Clear</button>
 
     </form>
 </div>

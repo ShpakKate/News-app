@@ -1,19 +1,18 @@
-$bg-color: #ccc;
+.nav {
+    padding: 3rem 1rem;
+    justify-content: space-between;
+}
 
 .title {
-    background-color: $bg-color;
-    padding: 2rem;
+    font-size: 2rem;
     font-weight: bold;
-    text-align: center;
+    text-decoration-line: none;
+    color: #fff;
 }
 
 .page {
-    font-weight: bold;
-    margin-right: 0.5rem;
-}
-
-.active {
-    color: #ff0000;
+    color: #fff;
+    width: fit-content;
 }
 
 .nav {
@@ -22,6 +21,15 @@ $bg-color: #ccc;
     list-style-type: none;
 }
 
-a {
-    text-decoration-line: none;
+mat-sidenav-container {
+    height: 100%;
+}
+
+mat-grid-tile {
+    background-color: lightblue;
+}
+
+mat-sidenav {
+    background-color: rgb(84, 117, 224);
+    width: 20rem;
 }

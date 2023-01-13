@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { News } from '../model';
-import { BehaviorSubject, filter, Observable, take } from 'rxjs';
+import { News } from '../news.model';
+import { BehaviorSubject, Observable, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +20,14 @@ export class DataService {
 
   addNews(title: string, full: string) {
     this.newsList$.pipe(take(1)).subscribe(val => {
-      let newsLehgth = 0;
+      let uniq = '';
       this.newsList$.subscribe(newsList => {
-        newsLehgth = newsList.length + 1;
+        uniq = 'id' + Math.random().toString(16).slice(2);
+        console.log(uniq);
       })
       const short = full.slice(0, 15);
       const newNews = {
-        id: newsLehgth,
+        id: uniq,
         title: title,
         short: short,
         full: full

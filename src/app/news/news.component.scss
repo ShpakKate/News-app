@@ -1,34 +1,3 @@
 .title {
     text-align: center;
 }
-
-.news-list {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.news-item {
-    margin: 0.5rem;
-    padding: 1rem;
-    width: 10rem;
-    height: 10rem;
-    border: 0.1rem #ff0000 dashed;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.news-name {
-    font-weight: bold;
-}
-
-.news-link {
-    text-decoration-line: none;
-}
-
-.btn-delete {
-    padding: 0.5rem 1.5rem;
-    margin-left: 3rem;
-}

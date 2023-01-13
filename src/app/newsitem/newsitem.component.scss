@@ -1,0 +1,28 @@
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.news-item {
+    margin: 0.5rem 3rem;
+    padding: 1rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.news-name {
+    font-weight: bold;
+}
+
+.news-link {
+    text-decoration-line: none;
+}
+
+.btn-delete {
+    padding: 0.5rem 1.5rem;
+    margin-left: 3rem;
+
+
+}

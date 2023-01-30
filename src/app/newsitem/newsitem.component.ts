@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Observable, of } from 'rxjs';
 import { News } from '../news.model';
@@ -10,10 +10,12 @@ import { News } from '../news.model';
 })
 export class NewsitemComponent implements OnInit {
 
+  @Input() item!: News;
+  @Output() editClick = new EventEmitter;
   activeNews!: News | null;
   newsList$: Observable<News[]> = of([]);
-  showNews = false;
-  @Input() item!: News;
+  shortNews = true;
+  btnName = 'Show full news';
 
   constructor(private dataService: DataService) {
   }
@@ -22,12 +24,29 @@ export class NewsitemComponent implements OnInit {
     this.newsList$ = this.dataService.newsList;
   }
 
-  showNewsItem() {
-    this.showNews = !this.showNews;
+  get news() {
+    return this.shortNews ? this.item?.full?.slice(0, 40) + '...' : this.item.full;
   }
 
-  deleteNews(item: any) {
+  showNewsItem() {
+    let a = this.item.full;
+    return this.shortNews ? this.item.full : this.item.full?.slice(0, 40) + '...'
+  }
+
+  toggleFull() {
+    this.shortNews = !this.shortNews;
+    this.btnName = this.shortNews ? 'Show full news' : 'Show short news';
+  }
+
+  unnecessaryBtn() {
+    return (this.item?.full?.slice(0, 40) !== this.item.full);
+  }
+
+  deleteNews(item: News) {
     this.dataService.deleteNews(item);
   }
 
+  onEditNews(item: News) {
+    this.editClick.emit();
+  }
 }

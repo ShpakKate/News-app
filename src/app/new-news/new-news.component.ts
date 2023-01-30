@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, ControlContainer } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { MyValidators } from 'src/shared/valiadators';
-import { News } from '../news.model';
+import { LoginForm, News } from '../news.model';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -12,48 +13,59 @@ import { DataService } from '../services/data.service';
 })
 export class NewNewsComponent implements OnInit {
 
-  title: string = 'new title:';
-  news: string = ' new news:';
+  changeNews!: News;
+  btnName: string = 'Add news';
   form!: FormGroup;
+  title = new FormControl('', [Validators.required, MyValidators.spacesVal]);
+  news = new FormControl('', [Validators.required, Validators.minLength(10), MyValidators.spacesVal]);
+  imgUrl = new FormControl('', Validators.required);
   newsList$: Observable<News[]> = of([]);
+  imgPreviw?: string | null = '';
+  preview: any;
 
-  loginForm: any = {
-    titleText: '',
-    text: ''
-  }
-
-  constructor(private dataService: DataService) {
-  }
-
-  addNews(title: string, full: string) {
-    this.dataService.addNews(title, full);
+  constructor(private dataService: DataService, private router: Router) {
+    this.changeNews = this.router.getCurrentNavigation()?.extras.state?.['news'];
   }
 
   ngOnInit() {
     this.form = new FormGroup({
-      title: new FormControl('', [Validators.required, MyValidators.spacesVal]),
-      news: new FormControl('', [Validators.required, Validators.minLength(10), MyValidators.spacesVal])
+      title: this.title,
+      news: this.news,
+      imgUrl: this.imgUrl
     });
 
-    this.newsList$ = this.dataService.newsList;
-
-  }
-
-  get titleFn() {
-    return this.form.get('title')
-  }
-
-  get newsFn() {
-    return this.form.get('news')
-  }
-
-  submit() {
-    if (this.form.valid) {
-      console.log(this.form);
-      const formData: any = { ...this.form.value }
-      this.form.reset();
-      console.log(this.loginForm.text, this.loginForm.titleText)
+    if (this.changeNews) {
+      this.btnName = 'Edit News';
+      this.form.setValue({
+        title: this.changeNews.title,
+        news: this.changeNews.full,
+        imgUrl: this.changeNews.imgUrl || ''
+      })
     }
+
+    this.imgUrl.valueChanges.subscribe(selectedValue => {
+      if (this.form) {
+        this.imgPreviw = selectedValue;
+        console.log(this.imgPreviw);
+      }
+    })
+  }
+
+  addNews() {
+    if (this.changeNews?.id) {
+      this.dataService.updateNews({
+        id: this.changeNews.id,
+        title: this.title.value as string,
+        full: this.news.value as string,
+        imgUrl: this.imgUrl.value as string
+      })
+    } else this.dataService.addNews(
+      this.title.value as string,
+      this.news.value as string,
+      this.imgUrl.value as string
+    );
+    this.form.reset();
+    this.form.markAsUntouched();
   }
 
   clear() {

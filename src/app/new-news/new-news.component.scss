@@ -6,21 +6,22 @@ $bg-color: #ccc;
 
 .container {
     text-align: center;
+    min-width: 50%;
+    max-width: 30rem;
+    margin: 0 auto;
 }
 
-.card {
-    margin: 0 15%;
-    width: 70%;
-    background-color: $bg-color;
-    padding: 2rem;
+.form-input {
+    width: 100%;
 }
 
 .title-group {
-    margin-bottom: 2rem;
+    margin: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .form-control {
-    margin: 1rem;
     text-align: end;
 }
 
@@ -33,14 +34,13 @@ $bg-color: #ccc;
 }
 
 .title-form {
-    height: 1.5rem;
-    width: 70%;
+    width: 100%;
+    height: 2rem;
 }
 
 .news-form {
-    min-height: 8rem;
-    width: 70%;
-    vertical-align: top;
+    width: 100%;
+    height: 10rem;
 }
 
 .valid {
@@ -51,13 +51,21 @@ $bg-color: #ccc;
     &.ng-valid.ng-touched {
         border: 2px solid #004dff;
     }
-
 }
 
 .btn-form {
-    padding: 0.5rem 1.5rem;
+    margin: 0.5rem 1rem;
 }
 
 .valiadation {
     color: #f00;
+    font-size: 0.8rem;
+}
+
+.img-block {
+    width: 85%;
+}
+
+.preview {
+    margin-left: 1.5rem;
 }

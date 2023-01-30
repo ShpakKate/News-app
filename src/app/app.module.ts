@@ -10,10 +10,11 @@ import { ModalComponent } from './modal/modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewNewsComponent } from './new-news/new-news.component';
 import { CommonModule } from '@angular/common';
-import { AddComponent } from './add/add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { NewsitemComponent } from './newsitem/newsitem.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { RegisrtationComponent } from './regisrtation/regisrtation.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { NewsitemComponent } from './newsitem/newsitem.component';
     NewsComponent,
     ModalComponent,
     NewNewsComponent,
-    AddComponent,
     NewsitemComponent,
+    AuthorizationComponent,
+    RegisrtationComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { NewsitemComponent } from './newsitem/newsitem.component';
     ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   bootstrap: [AppComponent]
 })

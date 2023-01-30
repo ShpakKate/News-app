@@ -1,31 +1,36 @@
 <h2 class="title">New News</h2>
 
-<div class="container">
-    <form class="card" [formGroup]="form" (ngSubmit)="submit()">
-        <h1 class="title-group">Add News</h1>
+<mat-card class="container">
+    <mat-card-title class="title-group">{{btnName}}</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form">
+            <mat-form-field class="form-input">
+                <mat-label>Title:</mat-label>
+                <input matInput type="text" formControlName="title">
+              <mat-error *ngIf="form.get('title')?.errors?.['required']">Field cannnot be empty</mat-error>
+            </mat-form-field>
 
-        <div class="form-control">
-            <label for="title" class="lable">{{ title | titlecase }}</label>
-            <input type="text" class="title-form valid" formControlName="title" [(ngModel)]="loginForm.titleText">
-            <div class="valiadation" *ngIf="titleFn?.invalid && (titleFn?.dirty || titleFn?.touched )">
-                <small *ngIf="titleFn?.errors?.['required']">Field cannnot be empty</small>
-            </div>
-        </div>
+            <mat-form-field class="form-input">
+                <mat-label>News:</mat-label>
+                <input matInput type="text" formControlName="news">
+              <mat-error *ngIf="form.get('news')?.errors?.['required']">Field can't be empty</mat-error>
+              <mat-error *ngIf="form.get('news')?.errors?.['minlength']">Length must be at least 10
+                characters</mat-error>
+            </mat-form-field>
 
-        <div class="form-control">
-            <label for="news" class="lable">{{ news | titlecase }}</label>
-            <textarea type="text" class="news-form valid" formControlName="news"
-                [(ngModel)]="loginForm.text"></textarea>
-            <div class="valiadation" *ngIf="newsFn?.invalid && (newsFn?.dirty || newsFn?.touched )" class="valiadation">
-                <small *ngIf="newsFn?.errors?.['required']">Field can't be empty</small>
-                <small *ngIf="newsFn?.errors?.['minlength']">Length must be at least 10 characters</small>
-            </div>
-            {{form.errors?.['minlength']}}
-        </div>
 
-        <button class="btn-form" type="submit" (click)="addNews(loginForm.titleText, loginForm.text)"
-            [disabled]="form.invalid">Send</button>
-        <button class="btn-form" type="reset">Clear</button>
 
-    </form>
-</div>
+            <mat-form-field class="form-input">
+                <mat-label>Img Url:</mat-label>
+                <input matInput formControlName="imgUrl" class=" img-block">
+                <img mat-card-image *ngIf="imgUrl.value" class="preview" [src]="imgPreviw" width="30" height="30">
+                    <mat-error *ngIf="form.get('imgUrl')?.errors?.['required']">Add Image</mat-error>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+
+            <button mat-raised-button class="btn-form" [disabled]="form.invalid" type="button" (click)="addNews()">{{
+                btnName }}</button>
+            <button mat-raised-button class="btn-form" type="reset">Clear</button>
+        </form>
+    </mat-card-content>
+</mat-card>

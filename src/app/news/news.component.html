@@ -1,5 +1,9 @@
 <h2 class="title">News</h2>
 
-<app-newsitem [item]="item" *ngFor="let item of newsList$ | async"></app-newsitem>
+<button mat-raised-button class="btn" color="primary" (click)="goToAddNews()">
+    Add news
+</button>
 
-<button mat-raised-button class="btn-delete" (click)="deleteNewses()">Delete News</button>
+<app-newsitem [item]="item" *ngFor="let item of newsList$ | async" (editClick)="onEditNews(item)"></app-newsitem>
+
+<button mat-raised-button class="btn" color="primary" (click)="deleteNewses()">Delete News</button>

@@ -1,0 +1,49 @@
+<h2 class="title">Registration</h2>
+
+<mat-card class="container">
+    <mat-card-content>
+        <form [formGroup]="userForm">
+            <mat-form-field class="form-input">
+                <mat-label>Username:</mat-label>
+                <input matInput type="text" formControlName="username">
+            </mat-form-field>
+            <div class="valiadation"
+                *ngIf="userForm.get('username')?.invalid && (userForm.get('username')?.dirty || userForm.get('username')?.touched )">
+                <mat-error *ngIf="userForm.get('username')?.errors?.['required']">Field cannnot be empty</mat-error>
+            </div>
+
+            <mat-form-field class="form-input">
+                <mat-label>Password:</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+            <div class="valiadation"
+                *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched )"
+                class="valiadation">
+                <mat-error *ngIf="userForm.get('password')?.errors?.['required']">Field can't be empty</mat-error>
+                <mat-error *ngIf="userForm.get('password')?.errors?.['minlength']">Length must be at least 10
+                    characters</mat-error>
+            </div>
+
+            <mat-form-field class="form-input">
+                <mat-label>Confirm Password:</mat-label>
+                <input matInput type="password" formControlName="confirmPassword">
+            </mat-form-field>
+            <div class="valiadation"
+                *ngIf="userForm.get('confirmPassword')?.invalid && (userForm.get('confirmPassword')?.dirty || userForm.get('password')?.touched )"
+                class="valiadation">
+                <mat-error *ngIf="userForm.get('confirmPassword')?.errors?.['required']">Field can't be
+                    empty</mat-error>
+                <mat-error *ngIf="userForm.get('confirmPassword')?.errors?.['minlength']">Length must be at least 10
+                    characters</mat-error>
+            </div>
+
+            <button mat-raised-button class="btn-form" [disabled]="userForm.invalid" type="button" (click)="newUser()">
+                Registration
+            </button>
+            <hr>
+            <button mat-raised-button class="btn-form" type="button" (click)="close()">
+                Close
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

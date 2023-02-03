@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, switchMap, take, tap } from 'rxjs';
-import { User } from '../../app/news.model';
+import { User } from '../model/news.model';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 

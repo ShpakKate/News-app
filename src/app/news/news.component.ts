@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { Observable, of } from 'rxjs';
-import { News } from '../news.model';
+import { News } from '../../shared/model/news.model';
 import { Router } from '@angular/router';
 
 @Component({

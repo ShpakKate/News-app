@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { Observable, of, Subscription} from 'rxjs';
-import { User } from '../news.model';
+import { User } from '../../shared/model/news.model';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({

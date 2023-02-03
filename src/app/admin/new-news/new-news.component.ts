@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { MyValidators } from 'src/shared/valiadators';
-import { News } from '../../news.model';
+import { News } from '../../../shared/model/news.model';
 import { DataService } from '../../../shared/services/data.service';
 
 @Component({

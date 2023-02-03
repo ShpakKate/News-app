@@ -3,8 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { MyValidators } from 'src/shared/valiadators';
-import { LoginForm, News } from '../news.model';
-import { DataService } from '../services/data.service';
+import { News } from '../../news.model';
+import { DataService } from '../../../shared/services/data.service';
 
 @Component({
   selector: 'app-new-news',
@@ -23,8 +23,9 @@ export class NewNewsComponent implements OnInit {
   imgPreviw?: string | null = '';
   preview: any;
 
+
   constructor(private dataService: DataService, private router: Router) {
-    this.changeNews = this.router.getCurrentNavigation()?.extras.state?.['news'];
+    this.changeNews = this.router.getCurrentNavigation()?.extras.state?.['../news'];
   }
 
   ngOnInit() {
@@ -49,6 +50,18 @@ export class NewNewsComponent implements OnInit {
         console.log(this.imgPreviw);
       }
     })
+  }
+
+  get titleValue() {
+    return this.form.get('title');
+  }
+
+  get newsValue() {
+    return this.form.get('news');
+  }
+
+  get imgUrlValue() {
+    return this.form.get('imgUrl');
   }
 
   addNews() {

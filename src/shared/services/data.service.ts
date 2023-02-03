@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { News } from '../news.model';
+import { News } from '../../app/news.model';
 import { BehaviorSubject, map, Observable, take } from 'rxjs';
 
 @Injectable({

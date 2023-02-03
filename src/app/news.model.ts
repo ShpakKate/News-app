@@ -16,5 +16,5 @@ export interface User {
     id: string | number;
     username: string;
     password: string;
-    confirmPassword?: string;
+
 }

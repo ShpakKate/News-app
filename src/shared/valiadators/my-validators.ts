@@ -1,4 +1,4 @@
-import { FormControl } from "@angular/forms";
+import {AbstractControl, FormControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
 export class MyValidators {
     static spacesVal(control: FormControl): { [key: string]: boolean } | null {
@@ -9,12 +9,10 @@ export class MyValidators {
         return null
     }
 
-    static createCompareValidator(controlOne: FormControl, controlTwo: FormControl) {
-        return () => {
-            if (controlOne.value !== controlTwo.value)
-                return { match_error: 'Value does not match' };
-            return null;
-        };
+    static createCompareValidator: ValidatorFn = ( control: AbstractControl ): ValidationErrors | null => {
+      const password = control.get('password');
+      const confirmPassword = control.get('confirmPassword');
 
-    }
+      return (password !== confirmPassword)? { compareValidator: true } : null;
+  }
 }

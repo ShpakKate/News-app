@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../shared/services/data.service';
 import { Observable, of } from 'rxjs';
 import { News } from '../news.model';
 
@@ -28,10 +28,10 @@ export class NewsitemComponent implements OnInit {
     return this.shortNews ? this.item?.full?.slice(0, 40) + '...' : this.item.full;
   }
 
-  showNewsItem() {
-    let a = this.item.full;
-    return this.shortNews ? this.item.full : this.item.full?.slice(0, 40) + '...'
-  }
+  // showNewsItem() {
+  //   let a = this.item.full;
+  //   return this.shortNews ? this.item.full : this.item.full?.slice(0, 40) + '...'
+  // }
 
   toggleFull() {
     this.shortNews = !this.shortNews;

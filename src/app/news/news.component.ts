@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../shared/services/data.service';
 import { Observable, of } from 'rxjs';
 import { News } from '../news.model';
 import { Router } from '@angular/router';

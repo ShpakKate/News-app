@@ -1,24 +1,24 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from "@angular/common/http";
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppRoutingModule} from './app-routing.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from '../shared/material/material.module';
+import {HttpClientModule} from "@angular/common/http";
 
-import { AdminModule } from "./admin/admin.module";
-import { AuthService } from "../shared/services/auth.service";
-import { PagesComponent } from './admin/pages/pages.component';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { NewsComponent } from './news/news.component';
-import { NewNewsComponent } from './admin/new-news/new-news.component';
-import { NewsitemComponent } from './newsitem/newsitem.component';
-import { AuthorizationComponent } from './authorization/authorization.component';
-import { RegisrtationComponent } from './regisrtation/regisrtation.component';
-import { MainLayoutComponent } from "../shared/components/main-layout/main-layout.component";
+import {AdminModule} from "./admin/admin.module";
+import {PagesComponent} from './admin/components/pages/pages.component';
+import {AppComponent} from './app.component';
+import {HomeComponent} from './components/home/home.component';
+import {AboutComponent} from './components/about/about.component';
+import {NewsComponent} from './components/news/news.component';
+import {NewNewsComponent} from './admin/components/new-news/new-news.component';
+import {NewsitemComponent} from './components/newsitem/newsitem.component';
+import {AuthorizationComponent} from './components/authorization/authorization.component';
+import {RegisrtationComponent} from './components/regisrtation/regisrtation.component';
+import {MainLayoutComponent} from "./main-layout/main-layout.component";
+import {UserLayoutComponent} from "./user-layout/user-layout.component";
 
 @NgModule({
     declarations: [
@@ -32,6 +32,7 @@ import { MainLayoutComponent } from "../shared/components/main-layout/main-layou
         AuthorizationComponent,
         RegisrtationComponent,
         MainLayoutComponent,
+        UserLayoutComponent
     ],
     imports: [
         BrowserModule,
@@ -44,7 +45,6 @@ import { MainLayoutComponent } from "../shared/components/main-layout/main-layou
         AdminModule,
         HttpClientModule,
     ],
-  bootstrap: [AppComponent],
-  providers: [AuthService]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

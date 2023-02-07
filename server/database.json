@@ -1,28 +1,39 @@
 {
-  "authUser": [
-    {
-      "id": 1,
-      "username": "Nik",
-      "password": 1111
-    }
-  ],
   "user": [
     {
       "id": 1,
       "username": "Nik",
-      "password": 1111
-    }, {
+      "password": "1111",
+      "online": false,
+      "role": "user"
+    },
+    {
       "id": 2,
       "username": "Alex",
-      "password": 2222
-    }, {
+      "password": "2222",
+      "online": false,
+      "role": "user"
+    },
+    {
       "id": 3,
       "username": "Tom",
-      "password": 3333
-    }, {
-      "id": 5,
-      "username": "Dick",
-      "password": 4444
+      "password": "3333",
+      "online": false,
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "username": "Admin",
+      "password": "4444",
+      "online": false,
+      "role": "admin"
+    },
+    {
+      "username": "kate",
+      "password": "1111111111",
+      "online": false,
+      "role": "user",
+      "id": 6
     }
   ],
   "news": [
@@ -31,26 +42,33 @@
       "title": "lorem 1",
       "full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "imgUrl": "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042660_10.jpg"
-    }, {
+    },
+    {
       "id": 2,
       "title": "lorem 2",
       "full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "imgUrl": "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042660_10.jpg"
-    }, {
+    },
+    {
       "id": 3,
       "title": "lorem 3",
       "full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "imgUrl": "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042660_10.jpg"
-    }, {
+    },
+    {
       "id": 4,
       "title": "lorem 4",
       "full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "imgUrl": "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042660_10.jpg"
-    }, { "id": 5,
+    },
+    {
+      "id": 5,
       "title": "lorem 5",
       "full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "imgUrl": "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042660_10.jpg"
-    }, { "id": 6,
+    },
+    {
+      "id": 6,
       "title": "lorem 6",
       "full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "imgUrl": "https://mirpozitiva.ru/wp-content/uploads/2019/11/1472042660_10.jpg"

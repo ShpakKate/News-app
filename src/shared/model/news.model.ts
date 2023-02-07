@@ -13,8 +13,10 @@ export interface LoginForm {
 }
 
 export interface User {
-    id: string | number;
+    id?: string | number;
     username: string;
     password: string;
+    online?: boolean;
+    role?: string;
 
 }

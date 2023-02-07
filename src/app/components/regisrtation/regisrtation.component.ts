@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { User } from '../../shared/model/news.model';
-import { AuthenticationService } from '../../shared/services/authentication.service';
+import {Observable, of} from 'rxjs';
+import { User } from '../../../shared/model/news.model';
+import { AuthenticationService } from '../../../shared/services/authentication.service';
 
 @Component({
   selector: 'app-regisrtation',
@@ -39,8 +39,6 @@ export class RegisrtationComponent implements OnInit {
         this.compareValidator = true;
       }
     })
-
-    this.userList$ = this.authenticationServic.userList;
   }
 
   get userValue() {
@@ -56,16 +54,16 @@ export class RegisrtationComponent implements OnInit {
   }
 
   createUser() {
-    // this.authenticationServic.addNewUser(
-    //   this.username.value as string,
-    //   this.password.value as string,
-    //   this.confirmPassword.value as string
-    // );
 
     this.authenticationServic.createUser( {
         username: this.username.value as string,
         password: this.password.value as string,
-    })
+    }).subscribe(
+    )
+
+    console.log(this.authenticationServic.getList().subscribe(
+      u => console.log(u)
+    ));
 
     this.userForm.reset();
     this.userForm.markAsUntouched();

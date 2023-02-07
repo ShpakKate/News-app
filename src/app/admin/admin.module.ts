@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminLayoutComponent } from './shared/components/admin-layout/admin-layout.component';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { RouterModule} from "@angular/router";
-import { PagesComponent } from "./pages/pages.component";
-import { NewNewsComponent } from "./new-news/new-news.component";
-import { MaterialModule } from "../material/material.module";
+import { PagesComponent } from "./components/pages/pages.component";
+import { NewNewsComponent } from "./components/new-news/new-news.component";
+import { MaterialModule } from "../../shared/material/material.module";
 
 @NgModule({
   declarations: [

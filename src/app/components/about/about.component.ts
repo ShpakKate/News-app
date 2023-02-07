@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -7,12 +6,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-  goToNews() {
-    throw new Error('Method not implemented.');
-  }
-
-
-
 }
 
 

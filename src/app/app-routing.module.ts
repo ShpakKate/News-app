@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { NewsComponent } from './news/news.component';
-import { AuthorizationComponent } from './authorization/authorization.component';
-import { RegisrtationComponent } from './regisrtation/regisrtation.component';
-import { MainLayoutComponent } from "../shared/components/main-layout/main-layout.component";
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { NewsComponent } from './components/news/news.component';
+import { AuthorizationComponent } from './components/authorization/authorization.component';
+import { RegisrtationComponent } from './components/regisrtation/regisrtation.component';
+import { MainLayoutComponent } from "./main-layout/main-layout.component";
 
 const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule) },

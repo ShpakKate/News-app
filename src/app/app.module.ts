@@ -20,6 +20,7 @@ import {NewsitemComponent} from './components/newsitem/newsitem.component';
 import {AuthorizationComponent} from './components/authorization/authorization.component';
 import {RegisrtationComponent} from './components/regisrtation/regisrtation.component';
 import {MainLayoutComponent} from "./main-layout/main-layout.component";
+import { UserForTableComponent } from './src/app/admin/components/user-for-table/user-for-table.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import {MainLayoutComponent} from "./main-layout/main-layout.component";
         NewsitemComponent,
         AuthorizationComponent,
         RegisrtationComponent,
-        MainLayoutComponent
+        MainLayoutComponent,
+        UserForTableComponent
     ],
     imports: [
         BrowserModule,

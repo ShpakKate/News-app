@@ -16,7 +16,7 @@ import {MyAuthGuard} from "../../shared/guards/my-auth-guard.service";
     RouterModule.forChild([
       {path: '', component: AdminLayoutComponent, children: [
           {path: '', redirectTo: '/admin/new-news', pathMatch: "full"},
-          {path: 'pages', canActivate: [MyAuthGuard], component: PagesComponent},
+          {path: 'pages', component: PagesComponent},
           {path: 'new-news', canActivate: [MyAuthGuard], component: NewNewsComponent}
         ]
       },

@@ -6,7 +6,7 @@
 .news-item {
     margin: 0.5rem 3rem;
     padding: 1rem;
-    min-width: 30rem;
+    min-width: 12rem;
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -50,7 +50,7 @@
 
 .img-wrapper {
     height: auto;
-    width: 10rem;
+    min-width: 10rem;
 }
 
 .imageNews {

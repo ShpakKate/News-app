@@ -1,1 +1,24 @@
-<h2 class="title">Pages</h2>
+<h2 class="title mt-3">Pages</h2>
+
+<div class="table-wrapper">
+  <table class="table table-hover table-striped table-bordered border-danger">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">USER</th>
+      <th scope="col">PASSWORD</th>
+      <th scope="col">ROLE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of userList$ | async">
+      <th scope="row"></th>
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.role}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

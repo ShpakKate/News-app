@@ -34,6 +34,13 @@
       "online": false,
       "role": "user",
       "id": 6
+    },
+    {
+      "username": "Mia",
+      "password": "1234567890",
+      "online": false,
+      "role": "user",
+      "id": 7
     }
   ],
   "news": [

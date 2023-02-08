@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { DataService } from '../../../shared/services/data.service';
-import { Observable, of } from 'rxjs';
-import { News } from '../../../shared/model/news.model';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {DataService} from '../../../shared/services/data.service';
+import {Observable, of} from 'rxjs';
+import {News} from '../../../shared/model/news.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-news',

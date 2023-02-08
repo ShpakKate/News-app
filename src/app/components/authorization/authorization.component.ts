@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Subscription} from 'rxjs';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../../shared/services/authentication.service';
 import {User} from "../../../shared/model/news.model";
 
@@ -15,15 +14,11 @@ export class AuthorizationComponent implements OnInit {
   userForm!: FormGroup;
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
-  userFound!: any;
   notFound = false;
-  aSub: Subscription | undefined;
-  userList?: User[] = [];
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {
   }
 
@@ -34,13 +29,9 @@ export class AuthorizationComponent implements OnInit {
       password: this.password
     });
 
-    this.route.queryParams.subscribe((params: Params) => {
-      if ( params['registred'] ) {
-        //можно зайти в систему используя свои данные
-      } else if ( params['accessDenied'] ) {
-        // для начала авториируйтесь в системе
-      }
-    })
+    if( this.authenticationService.isAuthenticated() ) {
+      // this.router.navigate(['home'])
+    }
   }
 
   get userValue() {
@@ -56,7 +47,6 @@ export class AuthorizationComponent implements OnInit {
   }
 
   login() {
-
     this.authenticationService.login({
       username: this.username.value as string,
       password: this.password.value as string,
@@ -65,7 +55,7 @@ export class AuthorizationComponent implements OnInit {
         if ( user?.role === 'admin' ) {
           this.router.navigate(['admin']);
         } else {
-          this.router.navigate(['news'])
+          this.router.navigate(['user'])
         }
       },
       error => this.notFound = true

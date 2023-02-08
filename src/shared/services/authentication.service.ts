@@ -3,14 +3,15 @@ import {map, Observable, take} from 'rxjs';
 import {User} from '../model/news.model';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  userTitle?: string;
+  isLogged = false;
 
-  constructor( private  httpClient: HttpClient, private  router: Router ) {
+  constructor( private  httpClient: HttpClient ) {
   }
 
   getList(): Observable<User[]> {
@@ -36,7 +37,9 @@ export class AuthenticationService {
       take(1),
       map( userList => {
         const foundUser = userList.find(u => u.username === user.username && u.password === user.password);
+        this.userTitle = foundUser?.username;
         if( foundUser ) {
+          this.isAuthenticated();
           return foundUser;
         }
         throw new Error('not found')
@@ -44,8 +47,23 @@ export class AuthenticationService {
     )
   }
 
-  logout(id: string) {
-  return this.httpClient.delete(`${environment.apiUrl}/authUser/${id}`)
+  isAuthenticated() {
+    return this.isLogged = true;
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.httpClient.patch<User>(`${environment.apiUrl}/user/${user.id}`,
+      {
+              username: user.username,
+              password: user.password,
+              role: user.role,
+              online: true,
+              id: user.id
+      });
+  }
+
+  logout() {
+    return this.isLogged = false;
   }
 
 }

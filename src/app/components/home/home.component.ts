@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthenticationService} from "../../../shared/services/authentication.service";
 
 @Component({
   selector: 'app-home',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  new = new Date()
+  new = new Date();
+  userTitle?: string;
+
+  constructor( private authenticationService: AuthenticationService) {
+    this.userTitle = this.authenticationService.userTitle;
+  }
 }

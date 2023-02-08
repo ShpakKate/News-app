@@ -4,10 +4,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from '../shared/material/material.module';
 import {HttpClientModule} from "@angular/common/http";
 
 import {AdminModule} from "./admin/admin.module";
+import {MaterialModule} from '../shared/material/material.module';
+import {UserModule} from "./user-layout/user/user.module";
+
 import {PagesComponent} from './admin/components/pages/pages.component';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './components/home/home.component';
@@ -18,7 +20,6 @@ import {NewsitemComponent} from './components/newsitem/newsitem.component';
 import {AuthorizationComponent} from './components/authorization/authorization.component';
 import {RegisrtationComponent} from './components/regisrtation/regisrtation.component';
 import {MainLayoutComponent} from "./main-layout/main-layout.component";
-import {UserLayoutComponent} from "./user-layout/user-layout.component";
 
 @NgModule({
     declarations: [
@@ -31,8 +32,7 @@ import {UserLayoutComponent} from "./user-layout/user-layout.component";
         NewsitemComponent,
         AuthorizationComponent,
         RegisrtationComponent,
-        MainLayoutComponent,
-        UserLayoutComponent
+        MainLayoutComponent
     ],
     imports: [
         BrowserModule,
@@ -43,6 +43,7 @@ import {UserLayoutComponent} from "./user-layout/user-layout.component";
         BrowserAnimationsModule,
         MaterialModule,
         AdminModule,
+        UserModule,
         HttpClientModule,
     ],
   bootstrap: [AppComponent]

@@ -11,6 +11,13 @@ $bg-color: #ccc;
     margin: 0 auto;
 }
 
+.btn {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-bottom: 1rem;
+}
+
 .form-input {
     width: 100%;
 }

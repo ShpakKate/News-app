@@ -84,4 +84,8 @@ export class NewNewsComponent implements OnInit {
   clear() {
     this.form.reset();
   }
+
+  goToNews() {
+    this.router.navigate(['news']);
+  }
 }

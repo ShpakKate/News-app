@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../../shared/services/authentication.service";
-import {tap} from "rxjs";
 
 @Component({
   selector: 'app-admin-layout',
@@ -11,19 +10,13 @@ import {tap} from "rxjs";
 export class AdminLayoutComponent {
  title = 'Admin page';
 
- constructor( private router: Router, private auth: AuthenticationService) {
+ constructor( private router: Router,
+              private auth: AuthenticationService) {
  }
-  logout($event: MouseEvent) {
-    $event.preventDefault()
-    this.router.navigate(['/'])
-  }
 
-  add() {
-    // this.auth.getList().subscribe((value) =>  console.log(value))
-    this.auth.getList().pipe(
-      tap(a => console.log(a))
-    ).subscribe()
-
-
+  logout(event: any) {
+    this.auth.logout();
+    this.router.navigate(['/']);
+    console.log(this.auth.isLogged);
   }
 }

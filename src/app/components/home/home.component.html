@@ -2,14 +2,7 @@
 
 <div class="card">
     <div class="card-body">
-        <p>You're logged in with Angular 14 &amp; JWT!!</p>
-        <!-- <p>Your role is: <strong>{{user.role}}</strong>.</p> -->
-        <p>This page can be accessed by <u>all authenticated users</u>.</p>
-        <p class="mb-1">Current user from secure api end point:</p>
-        <!-- <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-        <ul *ngIf="userFromApi">
-            <li>{{userFromApi.firstName}} {{userFromApi.lastName}}</li>
-        </ul> -->
-        <p>{{ new | date }}</p>
+      <p class="welcome" *ngIf="userTitle !== undefined">Welcome, {{userTitle}}</p>
+      <p>{{ new | date }}</p>
     </div>
 </div>

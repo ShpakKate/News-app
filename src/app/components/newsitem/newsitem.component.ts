@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DataService } from '../../../shared/services/data.service';
-import { Observable, of } from 'rxjs';
-import { News } from '../../../shared/model/news.model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {DataService} from '../../../shared/services/data.service';
+import {Observable, of} from 'rxjs';
+import {News} from '../../../shared/model/news.model';
 
 @Component({
   selector: 'app-newsitem',

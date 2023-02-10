@@ -1,46 +1,34 @@
 {
   "user": [
     {
-      "id": 1,
-      "username": "Nik",
-      "password": "1111",
-      "online": false,
-      "role": "user"
-    },
-    {
-      "id": 2,
-      "username": "Alex",
-      "password": "2222",
-      "online": false,
-      "role": "user"
-    },
-    {
-      "id": 3,
-      "username": "Tom",
-      "password": "3333",
-      "online": false,
-      "role": "user"
-    },
-    {
       "id": 4,
       "username": "Admin",
       "password": "4444",
-      "online": false,
       "role": "admin"
     },
     {
-      "username": "kate",
+      "username": "Kate",
       "password": "1111111111",
-      "online": false,
-      "role": "user",
+      "role": "admin",
       "id": 6
     },
     {
-      "username": "Mia",
-      "password": "1234567890",
-      "online": false,
+      "username": "Mark",
+      "password": "00000000000",
       "role": "user",
-      "id": 7
+      "id": 10
+    },
+    {
+      "username": "Tina",
+      "password": "999999999999",
+      "role": "user",
+      "id": 11
+    },
+    {
+      "username": "Tom",
+      "password": "66666666666",
+      "role": "user",
+      "id": 12
     }
   ],
   "news": [

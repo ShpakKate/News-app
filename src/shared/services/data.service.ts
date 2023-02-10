@@ -45,7 +45,8 @@ export class DataService {
   }
 
   deleteNews(item: News) {
-    this.newsList$.pipe(take(1)).subscribe(val => {
+    this.newsList$.pipe(
+      take(1)).subscribe(val => {
       const newNewsArray = val.filter(n => n.id !== item.id);
       this.newsList.next(newNewsArray);
     })

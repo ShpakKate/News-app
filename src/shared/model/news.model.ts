@@ -16,7 +16,6 @@ export interface User {
     id?: string | number;
     username: string;
     password: string;
-    online?: boolean;
     role?: string;
 
 }

@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {Observable, of} from 'rxjs';
-import {User} from '../../../shared/model/news.model';
 import {AuthenticationService} from '../../../shared/services/authentication.service';
 
 @Component({
@@ -18,10 +16,10 @@ export class RegisrtationComponent implements OnInit {
     Validators.required,
     Validators.minLength(10)]);
   confirmPassword = new FormControl('', [Validators.required]);
-  userList$: Observable<User[]> = of([]);
   compareValidator = false;
 
-  constructor(private authenticationServic: AuthenticationService, private router: Router) {
+  constructor( private authenticationServic: AuthenticationService,
+               private router: Router) {
   }
 
   ngOnInit() {

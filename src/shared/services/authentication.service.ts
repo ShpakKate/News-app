@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {map, Observable, take} from 'rxjs';
+import {map, Observable, of, take} from 'rxjs';
 import {User} from '../model/news.model';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
@@ -26,7 +26,6 @@ export class AuthenticationService {
       {
         username,
         password,
-        online: false,
         role: 'user'
       },
     );
@@ -47,6 +46,10 @@ export class AuthenticationService {
     )
   }
 
+  logout() {
+    return this.isLogged = false;
+  }
+
   isAuthenticated() {
     return this.isLogged = true;
   }
@@ -54,16 +57,17 @@ export class AuthenticationService {
   updateUser(user: User): Observable<User> {
     return this.httpClient.patch<User>(`${environment.apiUrl}/user/${user.id}`,
       {
-              username: user.username,
-              password: user.password,
-              role: user.role,
-              online: true,
-              id: user.id
+        username: user.username,
+        password: user.password,
+        role: user.role,
+        id: user.id
       });
   }
 
-  logout() {
-    return this.isLogged = false;
+  deleteUser(user: User): Observable<void>{
+    return this.httpClient.delete<void>(`${environment.apiUrl}/user/${user.id}`);
   }
+
+
 
 }

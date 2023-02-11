@@ -10,9 +10,16 @@
     "server": "json-server --watch ./server/database.json",
     "lint": "ng lint"
   },
+  "lint-staged": {
+    "src/**/*.{js,ts,scss,md,html,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint"
+      "pre-commit": "ng lint && lint-staged",
+      "pre-push": "ng build --prod"
     }
   },
   "private": true,

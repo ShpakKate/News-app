@@ -1,16 +1,15 @@
-import {Component} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-deleting-user',
   templateUrl: './deleting-user.component.html',
-  styleUrls: ['./deleting-user.component.scss']
+  styleUrls: ['./deleting-user.component.scss'],
 })
 export class DeletingUserComponent {
+  constructor(public dialog: MatDialogRef<DeletingUserComponent>) {}
 
-  constructor( public dialog: MatDialogRef<DeletingUserComponent>) {}
-
-  onCancelClick(){
+  onCancelClick() {
     this.dialog.close();
   }
 

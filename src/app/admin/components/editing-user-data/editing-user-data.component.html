@@ -23,8 +23,8 @@
         >Field can't be empty</mat-error
       >
       <mat-error *ngIf="passwordValue?.errors?.['minlength']"
-        >Length must be at least 10 characters. You have {{
-        passwordValue?.value.length }} characters.</mat-error
+        >Length must be at least 10 characters. You have
+        {{ passwordValue?.value.length }} characters.</mat-error
       >
       <mat-error *ngIf="compareValidator">Passwords do not match</mat-error>
     </mat-form-field>

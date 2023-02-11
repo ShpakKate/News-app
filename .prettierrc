@@ -10,17 +10,9 @@
   "printWidth": 80,
   "overrides": [
     {
-      "files": ["**/*.css", "**/*.scss", "**/*.component.html"],
+      "files": ["**/*.css", "**/*.scss", "**/*.html"],
       "options": {
-        "singleQuote": false,
-        "parser": "angular"
-      }
-    },
-    {
-      "files": ["**/*.html"],
-      "options": {
-        "singleQuote": false,
-        "parser": "html"
+        "singleQuote": false
       }
     }
   ]

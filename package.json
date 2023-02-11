@@ -8,19 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "json-server --watch ./server/database.json",
-    "lint": "ng lint"
-  },
-  "lint-staged": {
-    "src/**/*.{js,ts,scss,md,html,json}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "ng lint && lint-staged",
-      "pre-push": "ng build --prod"
-    }
+    "lint": "ng lint",
+    "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -63,6 +53,7 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "prettier": "^2.8.4",
     "prettier-eslint": "^15.0.1",
-    "typescript": "~4.8.2"
+    "typescript": "~4.8.2",
+    "husky": "^8.0.0"
   }
 }

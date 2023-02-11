@@ -5,34 +5,54 @@
 </button>
 
 <mat-card class="container">
-    <mat-card-title class="title-group">{{btnName}}</mat-card-title>
-    <mat-card-content>
-        <form [formGroup]="form">
-            <mat-form-field class="form-input">
-                <mat-label>Title:</mat-label>
-                <input matInput type="text" formControlName="title">
-              <mat-error *ngIf="titleValue?.errors?.['required']">Field cannot be empty</mat-error>
-            </mat-form-field>
+  <mat-card-title class="title-group">{{ btnName }}</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field class="form-input">
+        <mat-label>Title:</mat-label>
+        <input matInput type="text" formControlName="title" />
+        <mat-error *ngIf="titleValue?.errors?.['required']"
+          >Field cannot be empty</mat-error
+        >
+      </mat-form-field>
 
-            <mat-form-field class="form-input">
-                <mat-label>News:</mat-label>
-                <input matInput type="text" formControlName="news">
-              <mat-error *ngIf="newsValue?.errors?.['required']">Field can't be empty</mat-error>
-              <mat-error *ngIf="newsValue?.errors?.['minlength']">Length must be at least 10
-                characters</mat-error>
-            </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>News:</mat-label>
+        <input matInput type="text" formControlName="news" />
+        <mat-error *ngIf="newsValue?.errors?.['required']"
+          >Field can't be empty</mat-error
+        >
+        <mat-error *ngIf="newsValue?.errors?.['minlength']"
+          >Length must be at least 10 characters</mat-error
+        >
+      </mat-form-field>
 
-            <mat-form-field class="form-input">
-                <mat-label>Img Url:</mat-label>
-                <input matInput formControlName="imgUrl" class=" img-block">
-                <img mat-card-image *ngIf="imgUrl.value" class="preview" [src]="imgPreviw" width="30" height="30" alt="img">
-                    <mat-error *ngIf="imgUrlValue?.errors?.['required']">Add Image</mat-error>
-            </mat-form-field>
-            <mat-divider></mat-divider>
+      <mat-form-field class="form-input">
+        <mat-label>Img Url:</mat-label>
+        <input matInput formControlName="imgUrl" class="img-block" />
+        <img
+          mat-card-image
+          *ngIf="imgUrl.value"
+          class="preview"
+          [src]="imgPreviw"
+          width="30"
+          height="30"
+          alt="img" />
+        <mat-error *ngIf="imgUrlValue?.errors?.['required']"
+          >Add Image</mat-error
+        >
+      </mat-form-field>
+      <mat-divider></mat-divider>
 
-            <button mat-raised-button class="btn-form" [disabled]="form.invalid" type="button" (click)="addNews()">{{
-                btnName }}</button>
-            <button mat-raised-button class="btn-form" type="reset">Clear</button>
-        </form>
-    </mat-card-content>
+      <button
+        mat-raised-button
+        class="btn-form"
+        [disabled]="form.invalid"
+        type="button"
+        (click)="addNews()">
+        {{ btnName }}
+      </button>
+      <button mat-raised-button class="btn-form" type="reset">Clear</button>
+    </form>
+  </mat-card-content>
 </mat-card>

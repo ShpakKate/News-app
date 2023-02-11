@@ -1,32 +1,39 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {Role} from "../../../../shared/enums/role";
-import {User} from "../../../../shared/model/news.model";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Role } from '../../../../shared/enums/role';
+import { User } from '../../../../shared/model/news.model';
 
 @Component({
   selector: 'app-editing-user-data',
   templateUrl: './editing-user-data.component.html',
   styleUrls: ['./editing-user-data.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditingUserDataComponent implements OnInit {
-
   form!: FormGroup;
   username = new FormControl('', [Validators.required]);
   role = new FormControl('', [Validators.required]);
   password = new FormControl('', [
     Validators.required,
-    Validators.minLength(10)]);
+    Validators.minLength(10),
+  ]);
   confirmPassword = new FormControl('', [Validators.required]);
   compareValidator = false;
   roles = Object.values(Role);
   user: User;
 
-  constructor( public dialogRef: MatDialogRef<EditingUserDataComponent>,
-               private cdr: ChangeDetectorRef,
-               @Inject(MAT_DIALOG_DATA) data: User,
-               ) {
+  constructor(
+    public dialogRef: MatDialogRef<EditingUserDataComponent>,
+    private cdr: ChangeDetectorRef,
+    @Inject(MAT_DIALOG_DATA) data: User
+  ) {
     this.user = data;
   }
 
@@ -35,10 +42,10 @@ export class EditingUserDataComponent implements OnInit {
       username: this.username,
       role: this.role,
       password: this.password,
-      confirmPassword: this.confirmPassword
+      confirmPassword: this.confirmPassword,
     });
 
-    if(this.user) {
+    if (this.user) {
       this.form.setValue({
         username: this.user.username,
         role: this.user.role,
@@ -48,10 +55,9 @@ export class EditingUserDataComponent implements OnInit {
     }
 
     this.confirmPassword.valueChanges.subscribe(() => {
-
       if (this.password.value !== this.confirmPassword.value) {
-        this.confirmPassword.setErrors({PasswordNotMatch: true});
-        this.confirmPassword.setErrors({PasswordNotMatch: true});
+        this.confirmPassword.setErrors({ PasswordNotMatch: true });
+        this.confirmPassword.setErrors({ PasswordNotMatch: true });
         this.compareValidator = true;
       }
     });

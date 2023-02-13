@@ -5,16 +5,3 @@ export interface News {
   full?: string;
   imgUrl?: string;
 }
-
-export interface LoginForm {
-  titleText: string;
-  text: string;
-  imgUrl: string;
-}
-
-export interface User {
-  id?: string | number;
-  username: string;
-  password: string;
-  role?: string;
-}

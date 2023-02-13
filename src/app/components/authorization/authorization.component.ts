@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../shared/services/authentication.service';
-import { User } from '../../../shared/model/news.model';
+import { User } from '../../../shared/model/user.model';
 
 @Component({
   selector: 'app-authorization',
@@ -22,17 +22,13 @@ export class AuthorizationComponent implements OnInit {
       username: this.username,
       password: this.password,
     });
-
-    if (this.authenticationService.isAuthenticated()) {
-      // this.router.navigate(['home'])
-    }
   }
 
-  get userValue() {
+  get userValue(): AbstractControl | null {
     return this.userForm.get('username');
   }
 
-  get passwordValue() {
+  get passwordValue(): AbstractControl | null {
     return this.userForm.get('password');
   }
 

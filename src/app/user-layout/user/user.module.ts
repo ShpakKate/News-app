@@ -9,6 +9,7 @@ import { UserLayoutComponent } from '../user-layout.component';
 import { HomeComponent } from '../../components/home/home.component';
 import { NewsComponent } from '../../components/news/news.component';
 import { AboutComponent } from '../../components/about/about.component';
+import { NewNewsComponent } from '../../components/new-news/new-news.component';
 
 @NgModule({
   declarations: [UserLayoutComponent],
@@ -21,21 +22,10 @@ import { AboutComponent } from '../../components/about/about.component';
         component: UserLayoutComponent,
         children: [
           { path: '', redirectTo: '/user/home', pathMatch: 'full' },
-          {
-            path: 'home',
-            canActivate: [MyAuthGuard],
-            component: HomeComponent,
-          },
-          {
-            path: 'news',
-            canActivate: [MyAuthGuard],
-            component: NewsComponent,
-          },
-          {
-            path: 'about',
-            canActivate: [MyAuthGuard],
-            component: AboutComponent,
-          },
+          { path: 'home', canActivate: [MyAuthGuard], component: HomeComponent },
+          { path: 'news', canActivate: [MyAuthGuard], component: NewsComponent },
+          { path: 'new-news', canActivate: [MyAuthGuard], component: NewNewsComponent },
+          { path: 'about', canActivate: [MyAuthGuard], component: AboutComponent },
         ],
       },
     ]),

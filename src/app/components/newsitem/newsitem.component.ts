@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '../../../shared/services/data.service';
-import { Observable, of } from 'rxjs';
+import { Observable, of, switchMap, tap } from 'rxjs';
 import { News } from '../../../shared/model/news.model';
 
 @Component({
@@ -14,15 +14,25 @@ export class NewsitemComponent implements OnInit {
   newsList$: Observable<News[]> = of([]);
   shortNews = true;
   btnName = 'Show full news';
+  a!: string | undefined;
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.newsList$ = this.dataService.newsList;
+    this.loadData().subscribe();
+    this.a = this.item?.full?.slice(0, 40);
+  }
+
+  loadData() {
+    return this.dataService.getNewsList().pipe(
+      tap(data => {
+        this.newsList$ = of(data);
+      })
+    );
   }
 
   get news() {
-    return this.shortNews ? this.item?.full?.slice(0, 40) + '...' : this.item.full;
+    return this.shortNews ? `${this.a}...` : this.item.full;
   }
 
   toggleFull() {
@@ -30,12 +40,17 @@ export class NewsitemComponent implements OnInit {
     this.btnName = this.shortNews ? 'Show full news' : 'Show short news';
   }
 
-  unnecessaryBtn() {
-    return this.item?.full?.slice(0, 40) !== this.item.full;
+  hidingBtn() {
+    return this.a !== this.item.full;
   }
 
   deleteNews(item: News) {
-    this.dataService.deleteNews(item);
+    this.newsList$
+      .pipe(
+        switchMap(() => this.dataService.deleteNews(item)),
+        switchMap(() => this.loadData())
+      )
+      .subscribe();
   }
 
   onEditNews() {

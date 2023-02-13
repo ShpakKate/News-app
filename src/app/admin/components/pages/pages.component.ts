@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../../shared/model/news.model';
 import { Observable, of, switchMap, tap } from 'rxjs';
 import { AuthenticationService } from '../../../../shared/services/authentication.service';
 import { DeletingUserComponent } from '../deleting-user/deleting-user.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditingUserDataComponent } from '../editing-user-data/editing-user-data.component';
+import { User } from '../../../../shared/model/user.model';
 
 @Component({
   selector: 'app-pages',
@@ -30,7 +30,7 @@ export class PagesComponent implements OnInit {
     );
   }
 
-  onDeleteUser(user: User) {
+  deleteUser(user: User) {
     if (user.username !== 'Admin') {
       const dialogRef = this.dialog.open(DeletingUserComponent, { data: {} });
 
@@ -41,10 +41,12 @@ export class PagesComponent implements OnInit {
           switchMap(() => this.loadData())
         )
         .subscribe();
-    } else this.notAdmin = true;
+    } else {
+      this.notAdmin = true;
+    }
   }
 
-  onEditUser(user: User) {
+  editUser(user: User) {
     if (user.username !== 'Admin') {
       const dialogRef = this.dialog.open(EditingUserDataComponent, {
         data: user,

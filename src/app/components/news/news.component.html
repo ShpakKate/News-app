@@ -1,9 +1,5 @@
 <h2 class="title mt-3">News</h2>
 
-<!--<button mat-raised-button class="btn" color="primary" (click)="goToAddNews()">-->
-<!--    Add news-->
-<!--</button>-->
-
 <app-newsitem
   [item]="item"
   *ngFor="let item of newsList$ | async"

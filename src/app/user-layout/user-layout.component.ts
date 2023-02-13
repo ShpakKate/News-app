@@ -12,7 +12,7 @@ export class UserLayoutComponent {
 
   title!: 'first-app';
 
-  logout(event: any) {
+  logout() {
     this.auth.logout();
     this.router.navigate(['/']);
     console.log(this.auth.isLogged, event);

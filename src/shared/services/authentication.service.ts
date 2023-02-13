@@ -31,9 +31,7 @@ export class AuthenticationService {
     return this.getList().pipe(
       take(1),
       map(userList => {
-        const foundUser = userList.find(
-          u => u.username === user.username && u.password === user.password
-        );
+        const foundUser = userList.find(u => u.username === user.username && u.password === user.password);
         this.userTitle = foundUser?.username;
         if (foundUser) {
           this.isAuthenticated();
@@ -53,20 +51,15 @@ export class AuthenticationService {
   }
 
   updateUser(user: User): Observable<User> {
-    return this.httpClient.patch<User>(
-      `${environment.apiUrl}/user/${user.id}`,
-      {
-        username: user.username,
-        password: user.password,
-        role: user.role,
-        id: user.id,
-      }
-    );
+    return this.httpClient.patch<User>(`${environment.apiUrl}/user/${user.id}`, {
+      username: user.username,
+      password: user.password,
+      role: user.role,
+      id: user.id,
+    });
   }
 
   deleteUser(user: User): Observable<void> {
-    return this.httpClient.delete<void>(
-      `${environment.apiUrl}/user/${user.id}`
-    );
+    return this.httpClient.delete<void>(`${environment.apiUrl}/user/${user.id}`);
   }
 }

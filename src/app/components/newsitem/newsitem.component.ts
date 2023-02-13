@@ -22,9 +22,7 @@ export class NewsitemComponent implements OnInit {
   }
 
   get news() {
-    return this.shortNews
-      ? this.item?.full?.slice(0, 40) + '...'
-      : this.item.full;
+    return this.shortNews ? this.item?.full?.slice(0, 40) + '...' : this.item.full;
   }
 
   toggleFull() {

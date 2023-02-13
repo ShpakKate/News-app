@@ -37,9 +37,7 @@ export class PagesComponent implements OnInit {
       dialogRef
         .afterClosed()
         .pipe(
-          switchMap(confirmed =>
-            confirmed ? this.auth.deleteUser(user) : of(false)
-          ),
+          switchMap(confirmed => (confirmed ? this.auth.deleteUser(user) : of(false))),
           switchMap(() => this.loadData())
         )
         .subscribe();

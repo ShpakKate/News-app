@@ -18,10 +18,16 @@
         <td>{{ user.password }}</td>
         <td>{{ user.role }}</td>
         <td class="edit">
-          <button mat-button (click)="onDeleteUser(user)">
+          <button
+            mat-button
+            (click)="onDeleteUser(user)"
+          >
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-button (click)="onEditUser(user)">
+          <button
+            mat-button
+            (click)="onEditUser(user)"
+          >
             <mat-icon>edit</mat-icon>
           </button>
         </td>
@@ -29,5 +35,10 @@
     </tbody>
   </table>
 
-  <p class="text-danger" *ngIf="notAdmin">Admin cannot be edited or deleted!</p>
+  <p
+    class="text-danger"
+    *ngIf="notAdmin"
+  >
+    Admin cannot be edited or deleted!
+  </p>
 </div>

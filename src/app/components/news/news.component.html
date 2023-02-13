@@ -7,8 +7,14 @@
 <app-newsitem
   [item]="item"
   *ngFor="let item of newsList$ | async"
-  (editClick)="onEditNews(item)"></app-newsitem>
+  (editClick)="onEditNews(item)"
+></app-newsitem>
 
-<button mat-raised-button class="btn" color="primary" (click)="deleteNewses()">
+<button
+  mat-raised-button
+  class="btn"
+  color="primary"
+  (click)="deleteNewses()"
+>
   Delete News
 </button>

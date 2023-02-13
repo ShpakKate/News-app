@@ -11,17 +11,11 @@ import { AuthenticationService } from '../../../shared/services/authentication.s
 export class RegisrtationComponent implements OnInit {
   userForm!: FormGroup;
   username = new FormControl('', [Validators.required]);
-  password = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10),
-  ]);
+  password = new FormControl('', [Validators.required, Validators.minLength(10)]);
   confirmPassword = new FormControl('', [Validators.required]);
   compareValidator = false;
 
-  constructor(
-    private authenticationServic: AuthenticationService,
-    private router: Router
-  ) {}
+  constructor(private authenticationServic: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
     this.userForm = new FormGroup({
@@ -59,9 +53,7 @@ export class RegisrtationComponent implements OnInit {
       })
       .subscribe();
 
-    console.log(
-      this.authenticationServic.getList().subscribe(u => console.log(u))
-    );
+    console.log(this.authenticationServic.getList().subscribe(u => console.log(u)));
 
     this.userForm.reset();
     this.userForm.markAsUntouched();

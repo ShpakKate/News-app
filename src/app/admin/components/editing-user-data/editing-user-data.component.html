@@ -1,15 +1,25 @@
 <div class="m-3">
-  <form [formGroup]="form" class="d-flex flex-column">
+  <form
+    [formGroup]="form"
+    class="d-flex flex-column"
+  >
     <mat-form-field class="form-input">
       <mat-label>Username:</mat-label>
-      <input matInput type="text" formControlName="username" />
+      <input
+        matInput
+        type="text"
+        formControlName="username"
+      />
       <mat-error *ngIf="userValue?.invalid">Field cannot be empty</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-input">
       <mat-label>Role:</mat-label>
       <mat-select formControlName="role">
-        <mat-option *ngFor="let roleType of roles" [value]="roleType">
+        <mat-option
+          *ngFor="let roleType of roles"
+          [value]="roleType"
+        >
           {{ roleType }}
         </mat-option>
         <mat-error *ngIf="roleValue?.invalid">Please choose an role</mat-error>
@@ -18,34 +28,43 @@
 
     <mat-form-field class="form-input">
       <mat-label>Password:</mat-label>
-      <input matInput type="password" formControlName="password" />
-      <mat-error *ngIf="passwordValue?.errors?.['required']"
-        >Field can't be empty</mat-error
-      >
-      <mat-error *ngIf="passwordValue?.errors?.['minlength']"
-        >Length must be at least 10 characters. You have
-        {{ passwordValue?.value.length }} characters.</mat-error
-      >
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="passwordValue?.errors?.['required']">Field can't be empty</mat-error>
+      <mat-error *ngIf="passwordValue?.errors?.['minlength']">
+        Length must be at least 10 characters. You have {{ passwordValue?.value.length }} characters.
+      </mat-error>
       <mat-error *ngIf="compareValidator">Passwords do not match</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-input">
       <mat-label>Confirm Password:</mat-label>
-      <input matInput type="password" formControlName="confirmPassword" />
-      <mat-error *ngIf="confirmPasswordValue?.errors?.['required']"
-        >Field can't be empty</mat-error
-      >
-      <mat-error *ngIf="confirmPasswordValue?.errors?.['minlength']"
-        >Length must be at least 10 characters</mat-error
-      >
-      <mat-error
-        *ngIf="!passwordValue?.errors?.['minlength'] && compareValidator"
-        >Passwords do not match</mat-error
-      >
+      <input
+        matInput
+        type="password"
+        formControlName="confirmPassword"
+      />
+      <mat-error *ngIf="confirmPasswordValue?.errors?.['required']">Field can't be empty</mat-error>
+      <mat-error *ngIf="confirmPasswordValue?.errors?.['minlength']">Length must be at least 10 characters</mat-error>
+      <mat-error *ngIf="!passwordValue?.errors?.['minlength'] && compareValidator">Passwords do not match</mat-error>
     </mat-form-field>
   </form>
-  <button mat-button mat-dialog-close (click)="onCancelClick()">Cancel</button>
-  <button mat-button mat-dialog-close cdkFocusInitial (click)="onSaveClick()">
+  <button
+    mat-button
+    mat-dialog-close
+    (click)="onCancelClick()"
+  >
+    Cancel
+  </button>
+  <button
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    (click)="onSaveClick()"
+  >
     Save
   </button>
 </div>

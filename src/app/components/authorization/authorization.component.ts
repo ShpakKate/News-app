@@ -15,10 +15,7 @@ export class AuthorizationComponent implements OnInit {
   password = new FormControl('', [Validators.required]);
   notFound = false;
 
-  constructor(
-    private authenticationService: AuthenticationService,
-    private router: Router
-  ) {}
+  constructor(private authenticationService: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
     this.userForm = new FormGroup({

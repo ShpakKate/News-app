@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Role } from '../../../../shared/enums/role';
@@ -20,10 +14,7 @@ export class EditingUserDataComponent implements OnInit {
   form!: FormGroup;
   username = new FormControl('', [Validators.required]);
   role = new FormControl('', [Validators.required]);
-  password = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10),
-  ]);
+  password = new FormControl('', [Validators.required, Validators.minLength(10)]);
   confirmPassword = new FormControl('', [Validators.required]);
   compareValidator = false;
   roles = Object.values(Role);

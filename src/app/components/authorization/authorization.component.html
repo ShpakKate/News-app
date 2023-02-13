@@ -5,18 +5,22 @@
     <form [formGroup]="userForm">
       <mat-form-field class="form-input">
         <mat-label>Username:</mat-label>
-        <input matInput type="text" formControlName="username" />
-        <mat-error *ngIf="userValue?.errors?.['required']"
-          >Field cannnot be empty</mat-error
-        >
+        <input
+          matInput
+          type="text"
+          formControlName="username"
+        />
+        <mat-error *ngIf="userValue?.errors?.['required']">Field cannnot be empty</mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-input">
         <mat-label>Password:</mat-label>
-        <input matInput type="password" formControlName="password" />
-        <mat-error *ngIf="passwordValue?.errors?.['required']"
-          >Field can't be empty</mat-error
-        >
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+        />
+        <mat-error *ngIf="passwordValue?.errors?.['required']">Field can't be empty</mat-error>
       </mat-form-field>
 
       <button
@@ -24,7 +28,8 @@
         class="btn-form"
         [disabled]="userForm.invalid || userForm.disabled"
         type="button"
-        (click)="login()">
+        (click)="login()"
+      >
         Sign In
       </button>
       <hr />
@@ -32,12 +37,11 @@
         mat-raised-button
         class="btn-form"
         type="button"
-        (click)="registration()">
+        (click)="registration()"
+      >
         Create a new account
       </button>
-      <mat-error *ngIf="notFound"
-        >User not found. You need to register.</mat-error
-      >
+      <mat-error *ngIf="notFound">User not found. You need to register.</mat-error>
     </form>
   </mat-card-content>
 </mat-card>

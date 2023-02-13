@@ -1,25 +1,47 @@
 <mat-card class="news-item">
-    <div class="content-wrap">
-        <mat-card-content ng-controller="myAppCtrl" class="img-wrapper">
-            <img mat-card-image *ngIf="item.imgUrl" class="imageNews" src="{{item.imgUrl}}" alt="img">
-        </mat-card-content>
-        <div class="info-wrapper">
-            <mat-card-header>
-                <mat-card-title class="news-name">{{item.title}}</mat-card-title>
-                <mat-card-subtitle></mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content ng-controller="myAppCtrl">
-                <div [title]="item.full">{{news}}</div>
-            </mat-card-content>
-            <mat-card-actions>
-                <button *ngIf="unnecessaryBtn()" mat-button (click)="toggleFull()"><a class="news-link">{{btnName}}</a></button>
-            </mat-card-actions>
-        </div>
+  <div class="content-wrap">
+    <mat-card-content
+      ng-controller="myAppCtrl"
+      class="img-wrapper"
+    >
+      <img
+        mat-card-image
+        *ngIf="item.imgUrl"
+        class="imageNews"
+        src="{{ item.imgUrl }}"
+        alt="img"
+      />
+    </mat-card-content>
+    <div class="info-wrapper">
+      <mat-card-header>
+        <mat-card-title class="news-name">{{ item.title }}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content ng-controller="myAppCtrl">
+        <div [title]="item.full">{{ news }}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          *ngIf="unnecessaryBtn()"
+          mat-button
+          (click)="toggleFull()"
+        >
+          <a class="news-link">{{ btnName }}</a>
+        </button>
+      </mat-card-actions>
     </div>
+  </div>
 
-
-    <div class="button-wrapper">
-        <mat-icon class="btn-hide" (click)="deleteNews(item)">delete</mat-icon>
-        <mat-icon class="btn-hide" (click)="onEditNews(item)">edit</mat-icon>
-    </div>
+  <div class="button-wrapper">
+    <mat-icon
+      class="btn-hide"
+      (click)="deleteNews(item)"
+      >delete</mat-icon
+    >
+    <mat-icon
+      class="btn-hide"
+      (click)="onEditNews(item)"
+      >edit</mat-icon
+    >
+  </div>
 </mat-card>

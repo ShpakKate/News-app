@@ -1,22 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {DataService} from '../../../shared/services/data.service';
-import {Observable, of} from 'rxjs';
-import {News} from '../../../shared/model/news.model';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../shared/services/data.service';
+import { Observable, of } from 'rxjs';
+import { News } from '../../../shared/model/news.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent implements OnInit {
-
   newsList$: Observable<News[]> = of([]);
 
-  constructor(
-    private dataService: DataService,
-    private router: Router) {
-  }
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
     this.newsList$ = this.dataService.newsList;
@@ -28,7 +24,7 @@ export class NewsComponent implements OnInit {
 
   onEditNews(item: News) {
     this.router.navigate(['new-news'], {
-      state: { news: item }
+      state: { news: item },
     });
   }
 

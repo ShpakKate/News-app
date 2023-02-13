@@ -4,6 +4,17 @@
 <!--    Add news-->
 <!--</button>-->
 
-<app-newsitem [item]="item" *ngFor="let item of newsList$ | async" (editClick)="onEditNews(item)"></app-newsitem>
+<app-newsitem
+  [item]="item"
+  *ngFor="let item of newsList$ | async"
+  (editClick)="onEditNews(item)"
+></app-newsitem>
 
-<button mat-raised-button class="btn" color="primary" (click)="deleteNewses()">Delete News</button>
+<button
+  mat-raised-button
+  class="btn"
+  color="primary"
+  (click)="deleteNewses()"
+>
+  Delete News
+</button>

@@ -1,8 +1,21 @@
-<mat-toolbar color="primary" class="nav mat-display-2" routerLinkActive="active">
-  <a class="title" routerLink="/">{{title | uppercase}}</a>
+<mat-toolbar
+  color="primary"
+  class="nav mat-display-2"
+  routerLinkActive="active"
+>
+  <a
+    class="title"
+    routerLink="/"
+    >{{ title | uppercase }}</a
+  >
 
   <mat-nav-list class="nav">
-    <a mat-list-item class="page" routerLinkActive="active" routerLink="/authorization">
+    <a
+      mat-list-item
+      class="page"
+      routerLinkActive="active"
+      routerLink="/authorization"
+    >
       <mat-icon>account_circle</mat-icon>
     </a>
   </mat-nav-list>

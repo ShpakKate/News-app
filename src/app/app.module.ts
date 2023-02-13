@@ -6,18 +6,18 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-import {AdminModule} from "./admin/admin.module";
-import {UserModule} from "./user-layout/user/user.module";
-import {MaterialModule} from '../shared/material/material.module';
+import { AdminModule } from './admin/admin.module';
+import { UserModule } from './user-layout/user/user.module';
+import { MaterialModule } from '../shared/material/material.module';
 
-import {AppComponent} from './app.component';
-import {HomeComponent} from './components/home/home.component';
-import {AboutComponent} from './components/about/about.component';
-import {NewsComponent} from './components/news/news.component';
-import {NewsitemComponent} from './components/newsitem/newsitem.component';
-import {AuthorizationComponent} from './components/authorization/authorization.component';
-import {RegisrtationComponent} from './components/regisrtation/regisrtation.component';
-import {MainLayoutComponent} from "./main-layout/main-layout.component";
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { NewsComponent } from './components/news/news.component';
+import { NewsitemComponent } from './components/newsitem/newsitem.component';
+import { AuthorizationComponent } from './components/authorization/authorization.component';
+import { RegisrtationComponent } from './components/regisrtation/regisrtation.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 @NgModule({
   declarations: [

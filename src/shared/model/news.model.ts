@@ -7,9 +7,9 @@ export interface News {
 }
 
 export interface LoginForm {
-    titleText: string;
-    text: string;
-    imgUrl: string;
+  titleText: string;
+  text: string;
+  imgUrl: string;
 }
 
 export interface User {

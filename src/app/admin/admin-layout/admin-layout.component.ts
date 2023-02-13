@@ -10,13 +10,12 @@ import {AuthenticationService} from "../../../shared/services/authentication.ser
 export class AdminLayoutComponent {
  title = 'Admin page';
 
- constructor( private router: Router,
-              private auth: AuthenticationService) {
+ constructor(private router: Router,
+             private auth: AuthenticationService) {
  }
 
-  logout(event: any) {
+  logout(event: MouseEvent) {
     this.auth.logout();
     this.router.navigate(['/']);
-    console.log(this.auth.isLogged);
   }
 }

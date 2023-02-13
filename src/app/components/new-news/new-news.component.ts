@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { MyValidators } from 'src/shared/valiadators';
-import { News } from '../../../../shared/model/news.model';
-import { DataService } from '../../../../shared/services/data.service';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
+import {Router} from '@angular/router';
+import {MyValidators} from 'src/shared/valiadators';
+import {DataService} from '../../../shared/services/data.service';
 
 @Component({
   selector: 'app-new-news',
@@ -13,19 +11,19 @@ import { DataService } from '../../../../shared/services/data.service';
 })
 export class NewNewsComponent implements OnInit {
 
-  changeNews!: News;
+  changeNews!: any;
   btnName: string = 'Add news';
   form!: FormGroup;
   title = new FormControl('', [Validators.required, MyValidators.spacesVal]);
   news = new FormControl('', [Validators.required, Validators.minLength(10), MyValidators.spacesVal]);
   imgUrl = new FormControl('', Validators.required);
-  newsList$: Observable<News[]> = of([]);
-  imgPreviw?: string | null = '';
-  preview: any;
+  imgPreview?: string | null = '';
 
-
-  constructor(private dataService: DataService, private router: Router) {
-    this.changeNews = this.router.getCurrentNavigation()?.extras.state?.['../news'];
+  constructor(
+    private dataService: DataService,
+    private router: Router
+  ) {
+    this.changeNews = this.router.getCurrentNavigation()?.extras.state;
   }
 
   ngOnInit() {
@@ -35,8 +33,9 @@ export class NewNewsComponent implements OnInit {
       imgUrl: this.imgUrl
     });
 
-    if (this.changeNews) {
+    if(this.changeNews) {
       this.btnName = 'Edit News';
+      this.imgPreview = this.changeNews.imgUrl
       this.form.setValue({
         title: this.changeNews.title,
         news: this.changeNews.full,
@@ -45,22 +44,22 @@ export class NewNewsComponent implements OnInit {
     }
 
     this.imgUrl.valueChanges.subscribe(selectedValue => {
-      if (this.form) {
-        this.imgPreviw = selectedValue;
-        console.log(this.imgPreviw);
+      if(this.form) {
+        console.log(selectedValue)
+        this.imgPreview = selectedValue;
       }
     })
   }
 
-  get titleValue() {
+  get titleValue(): AbstractControl| null {
     return this.form.get('title');
   }
 
-  get newsValue() {
+  get newsValue(): AbstractControl| null {
     return this.form.get('news');
   }
 
-  get imgUrlValue() {
+  get imgUrlValue(): AbstractControl| null {
     return this.form.get('imgUrl');
   }
 
@@ -71,18 +70,15 @@ export class NewNewsComponent implements OnInit {
         title: this.title.value as string,
         full: this.news.value as string,
         imgUrl: this.imgUrl.value as string
-      })
-    } else this.dataService.addNews(
-      this.title.value as string,
-      this.news.value as string,
-      this.imgUrl.value as string
-    );
+      }).subscribe();
+    }
+    else this.dataService.createNews( {
+        title: this.title.value as string,
+        full: this.news.value as string,
+        imgUrl: this.imgUrl.value as string
+    }).subscribe();
     this.form.reset();
     this.form.markAsUntouched();
-  }
-
-  clear() {
-    this.form.reset();
   }
 
   goToNews() {

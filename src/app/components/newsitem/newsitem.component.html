@@ -12,7 +12,7 @@
                 <div [title]="item.full">{{news}}</div>
             </mat-card-content>
             <mat-card-actions>
-                <button *ngIf="unnecessaryBtn()" mat-button (click)="toggleFull()"><a class="news-link">{{btnName}}</a></button>
+                <button *ngIf="hidingBtn()" mat-button (click)="toggleFull()"><a class="news-link">{{btnName}}</a></button>
             </mat-card-actions>
         </div>
     </div>

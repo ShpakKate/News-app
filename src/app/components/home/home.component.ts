@@ -11,7 +11,7 @@ export class HomeComponent {
   new = new Date();
   userTitle?: string;
 
-  constructor( private authenticationService: AuthenticationService) {
+  constructor(private authenticationService: AuthenticationService) {
     this.userTitle = this.authenticationService.userTitle;
   }
 }

@@ -8,7 +8,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class DeletingUserComponent {
 
-  constructor( public dialog: MatDialogRef<DeletingUserComponent>) {}
+  constructor(public dialog: MatDialogRef<DeletingUserComponent>) {}
 
   onCancelClick(){
     this.dialog.close();

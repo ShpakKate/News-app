@@ -16,9 +16,9 @@ const routes: Routes = [
     loadChildren: () => import('./user-layout/user/user.module').then(mod => mod.UserModule)
   }, {
     path: '', component: MainLayoutComponent, children: [
-      { path: '', redirectTo: 'authorization', pathMatch: "full"},
-      { path: 'authorization', component: AuthorizationComponent },
-      { path: 'registration', component: RegisrtationComponent },
+      {path: '', redirectTo: 'authorization', pathMatch: "full"},
+      {path: 'authorization', component: AuthorizationComponent},
+      {path: 'registration', component: RegisrtationComponent},
     ]
   },
 ];

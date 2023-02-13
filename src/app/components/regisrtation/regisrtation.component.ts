@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../../shared/services/authentication.service';
 
@@ -18,9 +18,8 @@ export class RegisrtationComponent implements OnInit {
   confirmPassword = new FormControl('', [Validators.required]);
   compareValidator = false;
 
-  constructor( private authenticationServic: AuthenticationService,
-               private router: Router) {
-  }
+  constructor(private authenticationServic: AuthenticationService,
+              private router: Router) {}
 
   ngOnInit() {
     this.userForm = new FormGroup({
@@ -33,35 +32,29 @@ export class RegisrtationComponent implements OnInit {
 
       if ( this.password.value !== this.confirmPassword.value) {
         this.confirmPassword.setErrors({PasswordNotMatch: true});
-        this.confirmPassword.setErrors({PasswordNotMatch: true});
         this.compareValidator = true;
       }
     })
   }
 
-  get userValue() {
+  get userValue(): AbstractControl | null  {
     return this.userForm.get('username');
   }
 
-  get passwordValue() {
+  get passwordValue(): AbstractControl | null  {
     return this.userForm.get('password');
   }
 
-  get confirmPasswordValue() {
+  get confirmPasswordValue(): AbstractControl | null  {
     return this.userForm.get('confirmPasswordValue');
   }
 
   createUser() {
-
     this.authenticationServic.createUser( {
         username: this.username.value as string,
         password: this.password.value as string,
     }).subscribe(
     )
-
-    console.log(this.authenticationServic.getList().subscribe(
-      u => console.log(u)
-    ));
 
     this.userForm.reset();
     this.userForm.markAsUntouched();

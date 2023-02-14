@@ -1,20 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../../shared/services/authentication.service';
 
 @Component({
   selector: 'app-regisrtation',
   templateUrl: './regisrtation.component.html',
-  styleUrls: ['./regisrtation.component.scss']
+  styleUrls: ['./regisrtation.component.scss'],
 })
 export class RegisrtationComponent implements OnInit {
 
   userForm!: FormGroup;
   username = new FormControl('', [Validators.required]);
-  password = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10)]);
+  password = new FormControl('', [Validators.required, Validators.minLength(10)]);
   confirmPassword = new FormControl('', [Validators.required]);
   compareValidator = false;
 
@@ -25,8 +23,8 @@ export class RegisrtationComponent implements OnInit {
     this.userForm = new FormGroup({
       username: this.username,
       password: this.password,
-      confirmPassword: this.confirmPassword
-    })
+      confirmPassword: this.confirmPassword,
+    });
 
     this.confirmPassword.valueChanges.subscribe( () => {
 
@@ -34,7 +32,7 @@ export class RegisrtationComponent implements OnInit {
         this.confirmPassword.setErrors({PasswordNotMatch: true});
         this.compareValidator = true;
       }
-    })
+    });
   }
 
   get userValue(): AbstractControl | null  {
@@ -50,18 +48,19 @@ export class RegisrtationComponent implements OnInit {
   }
 
   createUser() {
-    this.authenticationServic.createUser( {
+    this.authenticationServic
+      .createUser({
         username: this.username.value as string,
         password: this.password.value as string,
-    }).subscribe(
-    )
+      })
+      .subscribe();
 
     this.userForm.reset();
     this.userForm.markAsUntouched();
     this.router.navigate(['authorization'], {
       queryParams: {
-        registred: true
-      }
+        registred: true,
+      },
     });
   }
 

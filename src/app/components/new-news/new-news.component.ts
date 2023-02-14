@@ -7,12 +7,11 @@ import {DataService} from '../../../shared/services/data.service';
 @Component({
   selector: 'app-new-news',
   templateUrl: './new-news.component.html',
-  styleUrls: ['./new-news.component.scss']
+  styleUrls: ['./new-news.component.scss'],
 })
 export class NewNewsComponent implements OnInit {
-
   changeNews!: any;
-  btnName: string = 'Add news';
+  btnName = 'Add news';
   form!: FormGroup;
   title = new FormControl('', [Validators.required, MyValidators.spacesVal]);
   news = new FormControl('', [Validators.required, Validators.minLength(10), MyValidators.spacesVal]);
@@ -30,7 +29,7 @@ export class NewNewsComponent implements OnInit {
     this.form = new FormGroup({
       title: this.title,
       news: this.news,
-      imgUrl: this.imgUrl
+      imgUrl: this.imgUrl,
     });
 
     if(this.changeNews) {
@@ -39,8 +38,8 @@ export class NewNewsComponent implements OnInit {
       this.form.setValue({
         title: this.changeNews.title,
         news: this.changeNews.full,
-        imgUrl: this.changeNews.imgUrl || ''
-      })
+        imgUrl: this.changeNews.imgUrl || '',
+      });
     }
 
     this.imgUrl.valueChanges.subscribe(selectedValue => {
@@ -48,7 +47,7 @@ export class NewNewsComponent implements OnInit {
         console.log(selectedValue)
         this.imgPreview = selectedValue;
       }
-    })
+    });
   }
 
   get titleValue(): AbstractControl| null {

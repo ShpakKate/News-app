@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {RouterModule} from "@angular/router";
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import {MaterialModule} from "../../shared/material/material.module";
 
@@ -33,8 +33,6 @@ import {MyAuthGuard} from "../../shared/guards/my-auth-guard.service";
       },
     ]),
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule],
 })
-export class AdminModule { }
+export class AdminModule {}

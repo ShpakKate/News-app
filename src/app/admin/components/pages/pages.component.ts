@@ -9,7 +9,7 @@ import {User} from "../../../../shared/model/user.model";
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss']
+  styleUrls: ['./pages.component.scss'],
 })
 
 export class PagesComponent implements OnInit {
@@ -32,37 +32,45 @@ export class PagesComponent implements OnInit {
         this.userList$ = of(data);
         this.notAdmin = false;
       })
-    )
+    );
   }
 
   deleteUser(user: User) {
     if (user.username !== 'Admin') {
-      const dialogRef = this.dialog.open(DeletingUserComponent, {data: {}});
+      const dialogRef = this.dialog.open(DeletingUserComponent, { data: {} });
 
-      dialogRef.afterClosed().pipe(
-        switchMap(confirmed => confirmed ? this.auth.deleteUser(user) : of(false)),
-        switchMap(() => this.loadData())
-      ).subscribe()
+      dialogRef
+        .afterClosed()
+        .pipe(
+          switchMap(confirmed => (confirmed ? this.auth.deleteUser(user) : of(false))),
+          switchMap(() => this.loadData())
+        )
+        .subscribe();
     } else {
       this.notAdmin = true;
     }
   }
 
-  editUser( user: User) {
+  editUser(user: User) {
     if (user.username !== 'Admin') {
-      const  dialogRef = this.dialog.open(EditingUserDataComponent, {data: user});
+      const dialogRef = this.dialog.open(EditingUserDataComponent, {
+        data: user,
+      });
 
-      dialogRef.afterClosed().pipe(
-        switchMap(data => {
-          return this.auth.updateUser({
-            ...user,
-            username: data.username,
-            password: data.password,
-            role: data.role,
-          })
-        }),
-        switchMap(() => this.loadData())
-      ).subscribe()
+      dialogRef
+        .afterClosed()
+        .pipe(
+          switchMap(data => {
+            return this.auth.updateUser({
+              ...user,
+              username: data.username,
+              password: data.password,
+              role: data.role,
+            });
+          }),
+          switchMap(() => this.loadData())
+        )
+        .subscribe();
     } else this.notAdmin = true;
   }
 }

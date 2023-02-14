@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {DataService} from '../../../shared/services/data.service';
-import {Observable, of, tap} from 'rxjs';
-import {News} from '../../../shared/model/news.model';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../shared/services/data.service';
+import { Observable, of , tap} from 'rxjs';
+import { News } from '../../../shared/model/news.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent implements OnInit {
 

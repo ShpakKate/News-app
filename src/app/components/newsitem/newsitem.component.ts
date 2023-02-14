@@ -1,24 +1,23 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {DataService} from '../../../shared/services/data.service';
-import {Observable, of, switchMap, tap} from 'rxjs';
-import {News} from '../../../shared/model/news.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DataService } from '../../../shared/services/data.service';
+import { Observable, of , switchMap, tap} from 'rxjs';
+import { News } from '../../../shared/model/news.model';
 
 @Component({
   selector: 'app-newsitem',
   templateUrl: './newsitem.component.html',
-  styleUrls: ['./newsitem.component.scss']
+  styleUrls: ['./newsitem.component.scss'],
 })
 export class NewsitemComponent implements OnInit {
 
   @Input() item!: News;
-  @Output() editClick = new EventEmitter;
+  @Output() editClick = new EventEmitter();
   newsList$: Observable<News[]> = of([]);
   shortNews = true;
   btnName = 'Show full news';
   a!: string | undefined;
 
-  constructor(private dataService: DataService) {
-  }
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.loadData().subscribe();
@@ -43,7 +42,7 @@ export class NewsitemComponent implements OnInit {
   }
 
   hidingBtn() {
-    return (this.a !== this.item.full);
+    return this.a !== this.item.full;
   }
 
   deleteNews(item: News) {
@@ -53,7 +52,7 @@ export class NewsitemComponent implements OnInit {
     ).subscribe()
   }
 
-  onEditNews(item: News) {
+  onEditNews() {
     this.editClick.emit();
   }
 }

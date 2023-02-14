@@ -1,6 +1,11 @@
 <h2 class="title mt-3">Home</h2>
 
 <div class="card">
-      <p class="welcome" *ngIf="userTitle !== undefined">Welcome, {{userTitle}}</p>
-      <p>{{new | date}}</p>
+  <p
+    class="welcome"
+    *ngIf="userTitle !== undefined"
+  >
+    Welcome, {{ userTitle }}
+  </p>
+  <p>{{new | date}}</p>
 </div>

@@ -12,7 +12,7 @@ import {MatPaginator} from "@angular/material/paginator";
 @Component({
   selector: 'app-list-of-users',
   templateUrl: './list-of-users.component.html',
-  styleUrls: ['./list-of-users.component.scss']
+  styleUrls: ['./list-of-users.component.scss'],
 })
 export class ListOfUsersComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'username', 'role', 'password', 'symbol'];
@@ -45,7 +45,7 @@ export class ListOfUsersComponent implements OnInit, AfterViewInit {
         this.userList$ = of(data);
         this.notAdmin = false;
       })
-    )
+    );
   }
 
   ngAfterViewInit() {

@@ -20,9 +20,9 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      {path: '', redirectTo: 'authorization', pathMatch: 'full' },
-      {path: 'authorization', component: AuthorizationComponent},
-      {path: 'registration', component: RegisrtationComponent},
+      { path: '', redirectTo: 'authorization', pathMatch: 'full' },
+      { path: 'authorization', component: AuthorizationComponent },
+      { path: 'registration', component: RegisrtationComponent },
     ],
   },
 ];

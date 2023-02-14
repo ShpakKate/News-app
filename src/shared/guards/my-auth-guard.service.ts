@@ -11,12 +11,12 @@ export class MyAuthGuard implements CanActivate {
 
   // constructor(private auth: AuthenticationService, private router: Router) {}
 
-   canActivate(route: ActivatedRouteSnapshot,
-               state: RouterStateSnapshot): boolean | Observable<boolean> {
-      const logged = this.auth.isLogged;
-      if ( !logged ) {
-        this.router.navigate(['authorization']);
-        return false;
-      } return true;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
+    const logged = this.auth.isLogged;
+    if (!logged) {
+      this.router.navigate(['authorization']);
+      return false;
+    }
+    return true;
   }
 }

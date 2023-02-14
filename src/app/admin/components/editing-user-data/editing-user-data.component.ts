@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Role } from '../../../../shared/enums/role';
 import { User } from '../../../../shared/model/user.model';
@@ -11,7 +11,6 @@ import { User } from '../../../../shared/model/user.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditingUserDataComponent implements OnInit {
-
   form!: FormGroup;
   username = new FormControl('', [Validators.required]);
   role = new FormControl('', [Validators.required]);
@@ -21,9 +20,11 @@ export class EditingUserDataComponent implements OnInit {
   roles = Object.values(Role);
   user: User;
 
-  constructor(public dialogRef: MatDialogRef<EditingUserDataComponent>,
-               private cdr: ChangeDetectorRef,
-               @Inject(MAT_DIALOG_DATA) data: User) {
+  constructor(
+    public dialogRef: MatDialogRef<EditingUserDataComponent>,
+    private cdr: ChangeDetectorRef,
+    @Inject(MAT_DIALOG_DATA) data: User
+  ) {
     this.user = data;
   }
 
@@ -45,9 +46,8 @@ export class EditingUserDataComponent implements OnInit {
     }
 
     this.confirmPassword.valueChanges.subscribe(() => {
-
       if (this.password.value !== this.confirmPassword.value) {
-        this.confirmPassword.setErrors({PasswordNotMatch: true});
+        this.confirmPassword.setErrors({ PasswordNotMatch: true });
         this.compareValidator = true;
       }
     });

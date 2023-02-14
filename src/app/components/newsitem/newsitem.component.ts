@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from '../../../shared/services/data.service';
-import { Observable, of , switchMap, tap} from 'rxjs';
+import { Observable, of, switchMap, tap } from 'rxjs';
 import { News } from '../../../shared/model/news.model';
 
 @Component({
@@ -9,7 +9,6 @@ import { News } from '../../../shared/model/news.model';
   styleUrls: ['./newsitem.component.scss'],
 })
 export class NewsitemComponent implements OnInit {
-
   @Input() item!: News;
   @Output() editClick = new EventEmitter();
   newsList$: Observable<News[]> = of([]);
@@ -29,7 +28,7 @@ export class NewsitemComponent implements OnInit {
       tap(data => {
         this.newsList$ = of(data);
       })
-    )
+    );
   }
 
   get news() {
@@ -46,10 +45,12 @@ export class NewsitemComponent implements OnInit {
   }
 
   deleteNews(item: News) {
-    this.newsList$.pipe(
-      switchMap(users => this.dataService.deleteNews(item)),
-      switchMap(() => this.loadData())
-    ).subscribe()
+    this.newsList$
+      .pipe(
+        switchMap(users => this.dataService.deleteNews(item)),
+        switchMap(() => this.loadData())
+      )
+      .subscribe();
   }
 
   onEditNews() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../shared/services/data.service';
-import { Observable, of , tap} from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { News } from '../../../shared/model/news.model';
 import { Router } from '@angular/router';
 
@@ -10,31 +10,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent implements OnInit {
-
   newsList$: Observable<News[]> = of([]);
 
-  constructor(
-    private dataService: DataService,
-    private router: Router
-  ) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
     this.loadData().subscribe();
   }
 
   loadData() {
-     return  this.dataService.getNewsList().pipe(
-      tap( data => {
+    return this.dataService.getNewsList().pipe(
+      tap(data => {
         this.newsList$ = of(data);
       })
-    )
+    );
   }
 
   onEditNews(item: News) {
-    this.router.navigate(
-      ['new-news'],
-      {
-      state: item
+    this.router.navigate(['new-news'], {
+      state: item,
     });
   }
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {AuthenticationService} from '../../../shared/services/authentication.service';
-import {User} from '../../../shared/model/user.model';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../../../shared/services/authentication.service';
+import { User } from '../../../shared/model/user.model';
 
 @Component({
   selector: 'app-authorization',
@@ -10,7 +10,6 @@ import {User} from '../../../shared/model/user.model';
   styleUrls: ['./authorization.component.scss'],
 })
 export class AuthorizationComponent implements OnInit {
-
   userForm!: FormGroup;
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
@@ -19,7 +18,6 @@ export class AuthorizationComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
-
     this.userForm = new FormGroup({
       username: this.username,
       password: this.password,
@@ -30,7 +28,7 @@ export class AuthorizationComponent implements OnInit {
     return this.userForm.get('username');
   }
 
-  get passwordValue(): AbstractControl | null  {
+  get passwordValue(): AbstractControl | null {
     return this.userForm.get('password');
   }
 
@@ -56,6 +54,3 @@ export class AuthorizationComponent implements OnInit {
       );
   }
 }
-
-
-

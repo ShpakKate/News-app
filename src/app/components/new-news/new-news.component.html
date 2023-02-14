@@ -54,8 +54,22 @@
       </mat-form-field>
       <mat-divider></mat-divider>
 
-            <button mat-raised-button class="btn-form" [disabled]="form.invalid" type="button" (click)="addNews()">{{btnName}}</button>
-            <button mat-raised-button class="btn-form" type="reset">Clear</button>
-        </form>
-    </mat-card-content>
+      <button
+        mat-raised-button
+        class="btn-form"
+        [disabled]="form.invalid"
+        type="button"
+        (click)="addNews()"
+      >
+        {{btnName}}
+      </button>
+      <button
+        mat-raised-button
+        class="btn-form"
+        type="reset"
+      >
+        Clear
+      </button>
+    </form>
+  </mat-card-content>
 </mat-card>

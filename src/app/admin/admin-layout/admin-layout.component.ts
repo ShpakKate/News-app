@@ -10,9 +10,7 @@ import { AuthenticationService } from '../../../shared/services/authentication.s
 export class AdminLayoutComponent {
   title = 'Admin page';
 
- constructor(private router: Router,
-             private auth: AuthenticationService) {
- }
+  constructor(private router: Router, private auth: AuthenticationService) {}
 
   logout(event: MouseEvent) {
     this.auth.logout();

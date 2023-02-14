@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, take} from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import {User} from "../model/user.model";
+import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class AuthenticationService {
   }
 
   createUser(user: { username: string; password: string }): Observable<User> {
-    const {username, password} = user;
+    const { username, password } = user;
     return this.httpClient.post<User>(`${environment.apiUrl}/user`, {
       username,
       password,
@@ -27,17 +27,15 @@ export class AuthenticationService {
   }
 
   updateUser(user: User): Observable<User> {
-    return this.httpClient.patch<User>(
-      `${environment.apiUrl}/user/${user.id}`,
-      {
-        username: user.username,
-        password: user.password,
-        role: user.role,
-        id: user.id
-      });
+    return this.httpClient.patch<User>(`${environment.apiUrl}/user/${user.id}`, {
+      username: user.username,
+      password: user.password,
+      role: user.role,
+      id: user.id,
+    });
   }
 
-  deleteUser(user: User): Observable<void>{
+  deleteUser(user: User): Observable<void> {
     return this.httpClient.delete<void>(`${environment.apiUrl}/user/${user.id}`);
   }
 

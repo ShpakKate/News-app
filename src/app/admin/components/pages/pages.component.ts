@@ -1,26 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable, of, switchMap, tap} from "rxjs";
-import {AuthenticationService} from "../../../../shared/services/authentication.service";
-import {DeletingUserComponent} from "../deleting-user/deleting-user.component";
-import {MatDialog} from "@angular/material/dialog";
-import {EditingUserDataComponent} from "../editing-user-data/editing-user-data.component";
-import {User} from "../../../../shared/model/user.model";
+import { Component, OnInit } from '@angular/core';
+import { Observable, of, switchMap, tap } from 'rxjs';
+import { AuthenticationService } from '../../../../shared/services/authentication.service';
+import { DeletingUserComponent } from '../deleting-user/deleting-user.component';
+import { MatDialog } from '@angular/material/dialog';
+import { EditingUserDataComponent } from '../editing-user-data/editing-user-data.component';
+import { User } from '../../../../shared/model/user.model';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.scss'],
 })
-
 export class PagesComponent implements OnInit {
   userList$: Observable<User[]> = of([]);
   notAdmin = false;
 
-
-  constructor(
-    private auth: AuthenticationService,
-    public dialog: MatDialog
-  ) {}
+  constructor(private auth: AuthenticationService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.loadData().subscribe();

@@ -35,8 +35,15 @@
     <a
       mat-list-item
       class="page"
+      routerLinkActive="active"
+      routerLink="/new-news"
+      >New News</a
+    >
+    <a
+      mat-list-item
+      class="page"
       href="#"
-      (click)="logout($event)"
+      (click)="logout()"
     >
       <mat-icon>logout</mat-icon>
     </a>

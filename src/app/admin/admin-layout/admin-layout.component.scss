@@ -2,25 +2,22 @@
   padding: 0 1rem;
   height: 5rem;
   justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
 }
 
 .title {
   font-size: 2rem;
   font-weight: bold;
   text-decoration-line: none;
-  color: #fff;
+  color: var(--header-text-color);
 }
 
 .page {
-  color: #fff;
+  color: var(--header-text-color);
   width: fit-content;
   padding: 2.5rem 1rem;
-}
-
-.nav {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
 }
 
 mat-sidenav-container {
@@ -32,6 +29,6 @@ mat-grid-tile {
 }
 
 mat-sidenav {
-  background-color: rgb(84, 117, 224);
+  background-color: var(--header-bg);
   width: 20rem;
 }

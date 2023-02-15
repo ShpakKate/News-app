@@ -3,7 +3,7 @@
 <button
   mat-raised-button
   class="btn"
-  color="warn"
+  color="primary"
   (click)="goToNews()"
 >
   Go to news
@@ -39,13 +39,13 @@
         <input
           matInput
           formControlName="imgUrl"
-          class="img-block"
+          class=" img-block"
         />
         <img
           mat-card-image
           *ngIf="imgUrl.value"
           class="preview"
-          [src]="imgPreviw"
+          [src]="imgPreview"
           width="30"
           height="30"
           alt="img"
@@ -61,7 +61,7 @@
         type="button"
         (click)="addNews()"
       >
-        {{ btnName }}
+        {{btnName}}
       </button>
       <button
         mat-raised-button

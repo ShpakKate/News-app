@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../shared/services/authentication.service';
 
@@ -27,21 +27,20 @@ export class RegisrtationComponent implements OnInit {
     this.confirmPassword.valueChanges.subscribe(() => {
       if (this.password.value !== this.confirmPassword.value) {
         this.confirmPassword.setErrors({ PasswordNotMatch: true });
-        this.confirmPassword.setErrors({ PasswordNotMatch: true });
         this.compareValidator = true;
       }
     });
   }
 
-  get userValue() {
+  get userValue(): AbstractControl | null {
     return this.userForm.get('username');
   }
 
-  get passwordValue() {
+  get passwordValue(): AbstractControl | null {
     return this.userForm.get('password');
   }
 
-  get confirmPasswordValue() {
+  get confirmPasswordValue(): AbstractControl | null {
     return this.userForm.get('confirmPasswordValue');
   }
 
@@ -52,8 +51,6 @@ export class RegisrtationComponent implements OnInit {
         password: this.password.value as string,
       })
       .subscribe();
-
-    console.log(this.authenticationServic.getList().subscribe(u => console.log(u)));
 
     this.userForm.reset();
     this.userForm.markAsUntouched();

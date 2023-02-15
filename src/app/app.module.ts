@@ -18,6 +18,7 @@ import { NewsitemComponent } from './components/newsitem/newsitem.component';
 import { AuthorizationComponent } from './components/authorization/authorization.component';
 import { RegisrtationComponent } from './components/regisrtation/regisrtation.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { NewNewsComponent } from './components/new-news/new-news.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     HomeComponent,
     AboutComponent,
     NewsComponent,
+    NewNewsComponent,
     NewsitemComponent,
     AuthorizationComponent,
     RegisrtationComponent,

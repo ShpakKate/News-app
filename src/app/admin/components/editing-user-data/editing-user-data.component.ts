@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Role } from '../../../../shared/enums/role';
-import { User } from '../../../../shared/model/news.model';
+import { User } from '../../../../shared/model/user.model';
 
 @Component({
   selector: 'app-editing-user-data',
   templateUrl: './editing-user-data.component.html',
-  styleUrls: ['./editing-user-data.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditingUserDataComponent implements OnInit {
@@ -48,25 +47,24 @@ export class EditingUserDataComponent implements OnInit {
     this.confirmPassword.valueChanges.subscribe(() => {
       if (this.password.value !== this.confirmPassword.value) {
         this.confirmPassword.setErrors({ PasswordNotMatch: true });
-        this.confirmPassword.setErrors({ PasswordNotMatch: true });
         this.compareValidator = true;
       }
     });
   }
 
-  get userValue() {
+  get userValue(): AbstractControl | null {
     return this.form.get('username');
   }
 
-  get roleValue() {
+  get roleValue(): AbstractControl | null {
     return this.form.get('role');
   }
 
-  get passwordValue() {
+  get passwordValue(): AbstractControl | null {
     return this.form.get('password');
   }
 
-  get confirmPasswordValue() {
+  get confirmPasswordValue(): AbstractControl | null {
     return this.form.get('confirmPasswordValue');
   }
 

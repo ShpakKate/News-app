@@ -14,13 +14,13 @@ export class NewsitemComponent implements OnInit {
   newsList$: Observable<News[]> = of([]);
   shortNews = true;
   btnName = 'Show full news';
-  a!: string | undefined;
+  abbreviatedNotation!: string | undefined;
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.loadData().subscribe();
-    this.a = this.item?.full?.slice(0, 40);
+    this.abbreviatedNotation = this.item?.full?.slice(0, 40);
   }
 
   loadData() {
@@ -32,7 +32,7 @@ export class NewsitemComponent implements OnInit {
   }
 
   get news() {
-    return this.shortNews ? `${this.a}...` : this.item.full;
+    return this.shortNews ? `${this.abbreviatedNotation}...` : this.item.full;
   }
 
   toggleFull() {
@@ -41,7 +41,7 @@ export class NewsitemComponent implements OnInit {
   }
 
   hidingBtn() {
-    return this.a !== this.item.full;
+    return this.abbreviatedNotation !== this.item.full;
   }
 
   deleteNews(item: News) {

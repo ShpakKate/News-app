@@ -18,7 +18,6 @@ export class ListOfUsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'username', 'role', 'password'];
   dataSource = new MatTableDataSource();
   userList$: Observable<User[]> = of([]);
-  dataToDisplay = [this.userList$];
   notAdmin = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

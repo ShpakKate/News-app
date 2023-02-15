@@ -42,7 +42,6 @@ export class NewNewsComponent implements OnInit {
 
     this.imgUrl.valueChanges.subscribe(selectedValue => {
       if (this.form) {
-        console.log(selectedValue);
         this.imgPreview = selectedValue;
       }
     });

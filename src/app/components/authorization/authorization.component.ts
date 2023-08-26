@@ -39,7 +39,7 @@ export class AuthorizationComponent implements OnInit {
   login() {
     this.authenticationService
       .login({
-        username: this.username.value as string,
+        username: this.username.value?.toLowerCase() as string,
         password: this.password.value as string,
       })
       .subscribe(

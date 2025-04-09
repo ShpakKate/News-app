@@ -20,7 +20,7 @@
           type="password"
           formControlName="password"
         />
-        <mat-error *ngIf="passwordValue?.errors?.['required']">Field can't be empty</mat-error>
+        <mat-error *ngIf="passwordValue?.errors?.['required']">Field can't be empty!</mat-error>
       </mat-form-field>
 
       <button
@@ -41,7 +41,7 @@
       >
         Create a new account
       </button>
-      <mat-error *ngIf="notFound">User not found. You need to register.</mat-error>
+      <mat-error *ngIf="notFound">User not found! You need to register.</mat-error>
     </form>
   </mat-card-content>
 </mat-card>
